@@ -116,7 +116,7 @@
 		fullHeight();
 		parallax();
 		// pieChart();
-		skillsWayPoint();
+		//skillsWayPoint();
 	});
 
 
