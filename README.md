@@ -6,4 +6,4 @@ ___
 
 ### Credits:
 - **Template**: Free HTML5 Template. All Rights Reserved - [freehtml5.co](https://freehtml5.co)
-- **404 page**: based on @purplexmoss example on [codepen.io](https://codepen.io/purplexmoss/pen/PoPyzMW)
+- **404 page**: based on @purplexmoss code on [codepen.io](https://codepen.io/purplexmoss/pen/PoPyzMW)
