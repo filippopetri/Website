@@ -1,6 +1,6 @@
 &copy; 2021 Filippo Petri
 
-Personal site is published at [filippopetri.com](https://filippopetri.com)
+Personal website is published at [filippopetri.com](https://filippopetri.com)
 
 ___
 
