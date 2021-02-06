@@ -6,4 +6,4 @@ ___
 
 ### Credits:
 - **Template**: Free HTML5 Template. All Rights Reserved - [freehtml5.co](https://freehtml5.co)
-- **404 page**: based on @purplexmoss example on [freefrontend.com](https://freefrontend.com)
+- **404 page**: based on @purplexmoss example on [freefrontend.com](https://freefrontend.com/html-css-404-page-templates/)
