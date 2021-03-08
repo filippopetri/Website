@@ -1,10 +1,11 @@
 ### filippopetri.com website repo:
 
-___
 
 <p align="center">
   Copyright &copy; 2021 Filippo Petri
 </p>
+
+___
 
 Personal website is published at [filippopetri.com](https://filippopetri.com)
 
