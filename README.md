@@ -1,6 +1,9 @@
-&copy; 2021 Filippo Petri
 
 Personal website is published at [filippopetri.com](https://filippopetri.com)
+
+<p align="center">
+  Copyright &copy; 2021 Filippo Petri
+</p>
 
 ___
 
