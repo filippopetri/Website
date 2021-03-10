@@ -1,6 +1,6 @@
-### filippopetri.com website repo:
+### Filippo Petri personal website:
 
-Personal website is published at [filippopetri.com](https://filippopetri.com)
+The website is published at [filippopetri.com](https://filippopetri.com)
 
 ___
 
