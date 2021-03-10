@@ -1,4 +1,4 @@
-### Filippo Petri personal website:
+# Filippo Petri personal website:
 
 The website is published at [filippopetri.com](https://filippopetri.com)
 
