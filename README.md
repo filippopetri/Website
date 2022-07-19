@@ -11,5 +11,5 @@ ___
 ___
 
 <p align="center">
-  Copyright &copy; <script>document.write(new Date().getFullYear())</script> Filippo Petri
+  Copyright &copy; 2022 Filippo Petri
 </p>
