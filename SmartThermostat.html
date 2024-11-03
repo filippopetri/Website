@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Filippo Petri | Smart Thermostat</title>
+
+    <meta name="description" content="Filippo Petri | Smart Thermostat" />
+    <meta name="author" content="&copy; Filippo Petri" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/icon.png"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .container {
+            padding-left: 15px; /* Adjust side padding */
+            padding-right: 15px; /* Adjust side padding */
+        }
+
+        .project-image {
+            width: 100%; /* Scale image to fit the column */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px;
+            transition: transform 0.3s; /* Smooth scaling on hover */
+        }
+
+        .project-image:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+
+        .project-description {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s; /* Smooth fade in */
+        }
+
+        .project-wrapper {
+            position: relative; /* Position relative for absolute positioning of description */
+            overflow: hidden; /* Hide overflow for scaling */
+        }
+
+        .project-wrapper:hover .project-description {
+            opacity: 1; /* Fade in description on hover */
+        }
+
+        .top-space {
+            margin-top: 30px; /* Adjust this value for desired space */
+        }
+
+        .other-projects {
+            margin-top: 50px; /* Space above other projects section */
+            background-color: #ff9000; /* Coral color */
+            padding: 50px 0; /* Padding around the section */
+        }
+
+        .other-projects .col-md-4 {
+            padding: 5px; /* Add padding around each project image */
+            margin-bottom: 5px; /* Aggiunge spazio sotto ogni progetto */
+        }
+
+        .other-projects h2 {
+        color: white; /* Set the color of the heading to white */
+    }
+
+    </style>
+</head>
+<body>
+    <div class="fh5co-loader"></div>
+
+    <!-- Project Detail Section -->
+    <div id="fh5co-project-detail" class="container top-space">
+        <div class="row">
+            <div class="col-md-6 text-left animate-box">
+                <h1>Smart Thermostat</h1>
+                <h3>Electronic engineering thesis</h3>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="col-md-6 animate-box">
+                <img src="images/Hexy.jpg" alt="Hexy" class="project-image">
+            </div>
+        </div>
+
+        <div class="row top-space">
+            <div class="col-md-6 text-left animate-box">
+                <img src="images/Hexy2.jpg" alt="Second Image" class="project-image" style="width: 100%; height: auto;">
+            </div>
+            <div class="col-md-6 text-left animate-box">
+                <p></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pulsante e link a GitHub -->
+    <div class="text-center" style="margin-top: 50px;">
+        <p>Check out the project on <a href="https://github.com/filippopetri/SmartThermostat" target="_blank">GitHub</a>.</p>
+        <p><a href="index.html" class="btn btn-primary">Back to the homepage</a></p>
+    </div>
+
+    <!-- Other Projects Section -->
+    <div class="other-projects full-width">
+        <div class="container">
+            <h2 class="text-center">Other Projects</h2>
+            <div class="row">
+                <div class="col-md-4 text-center project-wrapper">
+                    <a href="Hexy.html" class="work" style="background-image: url(images/Hexy.jpg);">
+                        <div class="desc">
+                            <h3>Hexy</h3>
+                            <span style="color:orange">Hexapod robot</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 text-center project-wrapper">
+                    <a href="TNA.html" class="work" style="background-image: url(images/TNA.png);">
+                        <div class="desc">
+                            <h3>TNA</h3>
+                            <span style="color:orange">Full e-commerce web app</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 text-center project-wrapper">
+                    <a href="Turtlebot.html" class="work" style="background-image: url(images/Turtlebot.jpg);">
+                        <div class="desc">
+                            <h3>Turtlebot</h3>
+                            <span style="color:orange">Quadruped robot</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="fh5co-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h6> &copy; <script>document.write(new Date().getFullYear())</script> Filippo Petri • <a href="https://github.com/filippopetri/Website">source code</a></h6>
+                    <h6> Template (modified): <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Waypoints -->
+    <script src="js/jquery.waypoints.min.js"></script>
+
+    <!-- Stellar Parallax -->
+    <script src="js/jquery.stellar.min.js"></script>
+
+    <!-- Main -->
+    <script src="js/main.js"></script>
+
+</body>
+</html>
