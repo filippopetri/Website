@@ -46,6 +46,10 @@
 
         .container {
             padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra verticalmente */
+            height: 100%; /* Occupa tutta l'altezza disponibile */
         }
 
         h1 {
@@ -53,15 +57,18 @@
             margin: 0;
             color: #ff9000; /* Accent color */
             animation: bounce 1s infinite; /* Add bounce animation */
+            margin-bottom: 20px; /* Spazio sotto il titolo */
         }
 
         h3 {
             font-size: 36px; /* Increased size */
             color: #333;
+            margin: 0; /* Rimuovi il margine */
         }
 
         p {
             font-size: 20px; /* Increased size */
+            margin: 10px 0; /* Margine verticale per i paragrafi */
         }
 
         .btn {
@@ -69,10 +76,11 @@
         }
 
         .footer {
-            position: absolute;
-            bottom: 20px;
+            margin-top: auto; /* Spinge il footer verso il basso */
             width: 100%;
             font-size: 14px; /* Keep footer font size the same */
+            text-align: center; /* Centra il testo */
+            padding: 10px 0; /* Padding per un aspetto migliore */
         }
 
         @keyframes bounce {
