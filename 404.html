@@ -1,133 +1,118 @@
-<!--	Filippo Petri | Home    -->
-
-<!-- Template (modified): FREE HTML5 TEMPLATE by FreeHTML5.co - http://freehtml5.co/ -->
+<!DOCTYPE HTML>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Filippo Petri | Page not found</title>
+    <title>404 Not Found | Filippo Petri | Hexy</title>
 
-  <meta name="description" content="Filippo Petri | Page not found" />
-  <meta name="author" content="&copy; Filippo Petri - Theme (modified): freehtml5.co" />
+    <meta name="description" content="404 Not Found - Filippo Petri | Hexy" />
+    <meta name="author" content="&copy; Filippo Petri" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/FP.png"/>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/icon.png"/>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600;900&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>
-  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="css/animate.css">
+
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="css/icomoon.css">
+
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Modernizr JS -->
+    <script src="js/modernizr-2.6.2.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            background-color: #f4f4f4; /* Light background color */
+        }
+
+        .container {
+            padding: 15px;
+        }
+
+        h1 {
+            font-size: 60px; /* Increased size */
+            margin: 0;
+            color: #ff9000; /* Accent color */
+            animation: bounce 1s infinite; /* Add bounce animation */
+        }
+
+        h3 {
+            font-size: 36px; /* Increased size */
+            color: #333;
+        }
+
+        p {
+            font-size: 20px; /* Increased size */
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            font-size: 14px; /* Keep footer font size the same */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <div class="mainbox">
-    <div class="err">4</div>
-    <i class="far fa-question-circle fa-spin"></i>
-    <div class="err2">4</div>
-    <div class="msg">
-      <p>OH NO! This page does not exist. Try returning to the <a href="/">homepage</a>.</p>
+    <div class="container">
+        <h1>404</h1>
+        <h3>Page Not Found</h3>
+        <p>Oops! The page you are looking for does not exist.</p>
+        <p><a href="index.html" class="btn btn-primary">Back to Homepage</a></p>
     </div>
-  </div>
 
-<!-- Style -->
-<style>
-  body {
-    background-color: #FF9000E6;
-  }
+    <div class="footer">
+        <h6>&copy; <script>document.write(new Date().getFullYear())</script> Filippo Petri • <a href="https://github.com/filippopetri/Website">source code</a></h6>
+        <h6>Template (modified): <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h6>
+    </div>
 
-  .mainbox {
-    margin: auto;
-    height: 600px;
-    width: 600px;
-    position: relative;
-  }
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
 
-  .err {
-    color: #ffffff;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 11rem;
-    position: absolute;
-    left: 20%;
-    top: 8%;
-  }
+    <!-- jQuery Easing -->
+    <script src="js/jquery.easing.1.3.js"></script>
 
-  .far {
-    position: absolute;
-    font-size: 8.5rem;
-    left: 42%;
-    top: 15%;
-    color: #ffffff;
-  }
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
 
-  .err2 {
-    color: #ffffff;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 11rem;
-    position: absolute;
-    left: 68%;
-    top: 8%;
-  }
+    <!-- Main -->
+    <script src="js/main.js"></script>
+</body>
 
-  .msg {
-    text-align: center;
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 1.6rem;
-    position: absolute;
-    left: 16%;
-    top: 45%;
-    width: 75%;
-  }
-
-  a {
-    text-decoration: none;
-    color: white;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<!-- License & credits:
-
-Template:
-    Copyright (c) 2020 by purplexmoss (https://codepen.io/purplexmoss/pen/PoPyzMW)
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
-
-Modified content:
-    Copyright (c) 2021 Filippo Petri
-
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
-
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
-
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
--->
+</html>
