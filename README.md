@@ -6,10 +6,9 @@ ___
 
 ### Credits:
 - **Template (modified)**: Free HTML5 Template. All Rights Reserved - [freehtml5.co](https://freehtml5.co)
-- **404 page**: based on @thenessax code on [codepen.io](https://codepen.io/thenessax/pen/PoPyzMW)
 
 ___
 
 <p align="center">
-  Copyright &copy; 2022 Filippo Petri
+  Copyright &copy; 2024 Filippo Petri
 </p>
