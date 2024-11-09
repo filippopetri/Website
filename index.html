@@ -333,9 +333,14 @@
 		<script>
 			// Check if dark mode is already enabled from localStorage
 			window.addEventListener('DOMContentLoaded', (event) => {
-				if (localStorage.getItem('darkMode') === 'enabled') {
+				const darkModeStatus = localStorage.getItem('darkMode');
+				const darkModeButton = document.getElementById('darkModeToggle');
+
+				if (darkModeStatus === 'enabled') {
 					document.body.classList.add('dark-mode');
-					document.getElementById('darkModeToggle').innerHTML = '🌞'; // Change to sun icon
+					darkModeButton.innerHTML = '🌞'; // Change to sun icon when in dark mode
+				} else {
+					darkModeButton.innerHTML = '🌙'; // Default to moon when in light mode
 				}
 			});
 
@@ -355,8 +360,8 @@
 					darkModeButton.innerHTML = '🌙'; // Change to moon when in light mode
 				}
 			}
-
 		</script>
+
 
 </body>
 
