@@ -32,88 +32,6 @@
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
 
-    <style>
-        body {
-            margin: 0;
-            /* Remove default margin */
-            overflow-x: hidden;
-            /* Prevent horizontal scrolling */
-        }
-
-        .container {
-            padding-left: 15px;
-            /* Adjust side padding */
-            padding-right: 15px;
-            /* Adjust side padding */
-        }
-
-        .project-image {
-            width: 100%;
-            /* Scale image to fit the column */
-            height: auto;
-            /* Maintain aspect ratio */
-            border-radius: 5px;
-            transition: transform 0.3s;
-            /* Smooth scaling on hover */
-        }
-
-        .project-image:hover {
-            transform: scale(1.05);
-            /* Scale up on hover */
-        }
-
-        .project-description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-            /* Smooth fade in */
-        }
-
-        .project-wrapper {
-            position: relative;
-            /* Position relative for absolute positioning of description */
-            overflow: hidden;
-            /* Hide overflow for scaling */
-        }
-
-        .project-wrapper:hover .project-description {
-            opacity: 1;
-            /* Fade in description on hover */
-        }
-
-        .top-space {
-            margin-top: 30px;
-            /* Adjust this value for desired space */
-        }
-
-        .other-projects {
-            margin-top: 50px;
-            /* Space above other projects section */
-            background-color: #ff9000;
-            /* Coral color */
-            padding: 50px 0;
-            /* Padding around the section */
-        }
-
-        .other-projects .col-md-4 {
-            padding: 5px;
-            /* Add padding around each project image */
-            margin-bottom: 5px;
-            /* Aggiunge spazio sotto ogni progetto */
-        }
-
-        .other-projects h2 {
-            color: white;
-            /* Set the color of the heading to white */
-        }
-    </style>
 </head>
 
 <body>
@@ -241,7 +159,7 @@
     <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             // Verifica se la modalità scura è attiva
-            const darkModeStatus = localStorage.getItem('darkMode');
+            const darkModeStatus = sessionStorage.getItem('darkMode');
             const darkModeButton = document.getElementById('darkModeToggle');
 
             if (darkModeStatus === 'enabled') {
@@ -259,12 +177,12 @@
             // Alterna la classe dark-mode sul body
             document.body.classList.toggle('dark-mode');
 
-            // Salva lo stato della modalità scura nel localStorage
+            // Salva lo stato della modalità scura nel sessionStorage
             if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('darkMode', 'enabled');
+                sessionStorage.setItem('darkMode', 'enabled');
                 darkModeButton.innerHTML = '🌞'; // Cambia a "sole" quando la modalità scura è attiva
             } else {
-                localStorage.setItem('darkMode', 'disabled');
+                sessionStorage.setItem('darkMode', 'disabled');
                 darkModeButton.innerHTML = '🌙'; // Cambia a "luna" quando la modalità scura è disattiva
             }
         }
