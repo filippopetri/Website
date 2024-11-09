@@ -11,7 +11,7 @@
     <meta name="author" content="&copy; Filippo Petri" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/icon.png"/>
+    <link rel="icon" type="image/png" href="images/icon.png" />
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
@@ -34,24 +34,32 @@
 
     <style>
         body {
-            margin: 0; /* Remove default margin */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            margin: 0;
+            /* Remove default margin */
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling */
         }
 
         .container {
-            padding-left: 15px; /* Adjust side padding */
-            padding-right: 15px; /* Adjust side padding */
+            padding-left: 15px;
+            /* Adjust side padding */
+            padding-right: 15px;
+            /* Adjust side padding */
         }
 
         .project-image {
-            width: 100%; /* Scale image to fit the column */
-            height: auto; /* Maintain aspect ratio */
+            width: 100%;
+            /* Scale image to fit the column */
+            height: auto;
+            /* Maintain aspect ratio */
             border-radius: 5px;
-            transition: transform 0.3s; /* Smooth scaling on hover */
+            transition: transform 0.3s;
+            /* Smooth scaling on hover */
         }
 
         .project-image:hover {
-            transform: scale(1.05); /* Scale up on hover */
+            transform: scale(1.05);
+            /* Scale up on hover */
         }
 
         .project-description {
@@ -64,41 +72,55 @@
             padding: 10px;
             text-align: center;
             opacity: 0;
-            transition: opacity 0.3s; /* Smooth fade in */
+            transition: opacity 0.3s;
+            /* Smooth fade in */
         }
 
         .project-wrapper {
-            position: relative; /* Position relative for absolute positioning of description */
-            overflow: hidden; /* Hide overflow for scaling */
+            position: relative;
+            /* Position relative for absolute positioning of description */
+            overflow: hidden;
+            /* Hide overflow for scaling */
         }
 
         .project-wrapper:hover .project-description {
-            opacity: 1; /* Fade in description on hover */
+            opacity: 1;
+            /* Fade in description on hover */
         }
 
         .top-space {
-            margin-top: 30px; /* Adjust this value for desired space */
+            margin-top: 30px;
+            /* Adjust this value for desired space */
         }
 
         .other-projects {
-            margin-top: 50px; /* Space above other projects section */
-            background-color: #ff9000; /* Coral color */
-            padding: 50px 0; /* Padding around the section */
+            margin-top: 50px;
+            /* Space above other projects section */
+            background-color: #ff9000;
+            /* Coral color */
+            padding: 50px 0;
+            /* Padding around the section */
         }
 
         .other-projects .col-md-4 {
-            padding: 5px; /* Add padding around each project image */
-            margin-bottom: 5px; /* Aggiunge spazio sotto ogni progetto */
+            padding: 5px;
+            /* Add padding around each project image */
+            margin-bottom: 5px;
+            /* Aggiunge spazio sotto ogni progetto */
         }
 
         .other-projects h2 {
-        color: white; /* Set the color of the heading to white */
-    }
-
+            color: white;
+            /* Set the color of the heading to white */
+        }
     </style>
 </head>
+
 <body>
     <div class="fh5co-loader"></div>
+
+    <!-- Dark Mode Toggle Button -->
+		<button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
 
     <!-- Project Detail Section -->
     <div id="fh5co-project-detail" class="container top-space">
@@ -107,7 +129,9 @@
                 <h1>TNA</h1>
                 <h3>Full e-commerce web app</h3>
                 <p>Web Applications exam project AA. 2019-2020.</p>
-                <p>The project consists of the creation of a web app for the management of an e-commerce website with user registration, many db operations, product search functions, categories filters, profile management, recent orders, shopping cart and organization of available objects.</p>               
+                <p>The project consists of the creation of a web app for the management of an e-commerce website with
+                    user registration, many db operations, product search functions, categories filters, profile
+                    management, recent orders, shopping cart and organization of available objects.</p>
             </div>
             <div class="col-md-6 animate-box">
                 <img src="images/TNA.png" alt="Hexy" class="project-image">
@@ -132,7 +156,7 @@
                     <li>MongoDB</li>
                     <li>npm</li>
                 </ul>
-                </div>
+            </div>
         </div>
     </div>
 
@@ -148,7 +172,8 @@
             <h2 class="text-center">Other Projects</h2>
             <div class="row">
                 <div class="col-md-4 text-center project-wrapper">
-                    <a href="SmartThermostat.html" class="work" style="background-image: url(images/SmartThermostat.png);">
+                    <a href="SmartThermostat.html" class="work"
+                        style="background-image: url(images/SmartThermostat.png);">
                         <div class="desc">
                             <h3>Smart Thermostat</h3>
                             <span style="color:orange">Electronic engineering thesis</span>
@@ -180,7 +205,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h6> &copy; <script>document.write(new Date().getFullYear())</script> Filippo Petri • <a href="https://github.com/filippopetri/Website">source code</a></h6>
+                    <h6> &copy;
+                        <script>document.write(new Date().getFullYear())</script> Filippo Petri • <a
+                            href="https://github.com/filippopetri/Website">source code</a>
+                    </h6>
                     <h6> Template (modified): <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h6>
                 </div>
             </div>
@@ -209,5 +237,39 @@
     <!-- Main -->
     <script src="js/main.js"></script>
 
+    <!-- Dark Mode JavaScript -->
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Verifica se la modalità scura è attiva
+            const darkModeStatus = localStorage.getItem('darkMode');
+            const darkModeButton = document.getElementById('darkModeToggle');
+
+            if (darkModeStatus === 'enabled') {
+                document.body.classList.add('dark-mode');
+                darkModeButton.innerHTML = '🌞'; // Cambia l'icona a "sole" quando la modalità scura è attiva
+            } else {
+                darkModeButton.innerHTML = '🌙'; // Cambia l'icona a "luna" quando la modalità scura è disattiva
+            }
+        });
+
+        // Funzione per alternare la modalità scura
+        function toggleDarkMode() {
+            const darkModeButton = document.getElementById('darkModeToggle');
+
+            // Alterna la classe dark-mode sul body
+            document.body.classList.toggle('dark-mode');
+
+            // Salva lo stato della modalità scura nel localStorage
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                darkModeButton.innerHTML = '🌞'; // Cambia a "sole" quando la modalità scura è attiva
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                darkModeButton.innerHTML = '🌙'; // Cambia a "luna" quando la modalità scura è disattiva
+            }
+        }
+    </script>
+
 </body>
+
 </html>

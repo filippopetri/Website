@@ -1313,6 +1313,9 @@ body.dark-mode #fh5co-footer {
 }
 
 /* Make sure headings and titles stand out */
+body.dark-mode h1 {
+  color: #ffffff;
+}
 body.dark-mode h2,
 body.dark-mode h3,
 body.dark-mode h6 {
