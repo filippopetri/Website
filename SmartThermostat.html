@@ -1,6 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
 
+<style>
+    body {
+        margin: 0; /* Remove default margin */
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+</style>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -176,7 +183,7 @@
                     darkModeButton.innerHTML = '🌙'; // Cambia a "luna"
                 }
             } catch (e) {
-                console.error("Errore durante l'accesso a localStorage:", e);
+                console.error("localStorage error:", e);
             }
         }
     </script>
