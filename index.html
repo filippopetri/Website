@@ -331,6 +331,12 @@
 
 		<!-- Dark Mode JavaScript -->
 		<script>
+
+			if (typeof (Storage) !== "undefined") {
+				console.log("localStorage is available.");
+			} else {
+				console.error("localStorage is not available.");
+			}
 			window.addEventListener('DOMContentLoaded', (event) => {
 				// Verifica se la modalità scura è attiva
 				const darkModeStatus = sessionStorage.getItem('darkMode');
