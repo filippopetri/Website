@@ -1291,3 +1291,102 @@ input[type="text"] {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark-mode header#fh5co-header {
+  background-color: #333;
+}
+
+body.dark-mode .fh5co-social-icons a {
+  color: #ffffff;
+}
+
+body.dark-mode .timeline-panel {
+  background-color: #444;
+  color: #ffffff;
+}
+
+body.dark-mode .desc {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure that text in the About Me and Footer is white in dark mode */
+body.dark-mode #fh5co-about,
+body.dark-mode #fh5co-footer {
+  color: #ffffff;
+}
+
+/* Make sure headings and titles stand out */
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h6 {
+  color: #ffffff;
+}
+
+/* Dark mode toggle button */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  /* Set width */
+  height: 50px;
+  /* Set height */
+  background-color: #333;
+  /* Default to dark mode background */
+  color: #fff;
+  /* Default to white text/icon */
+  border: none;
+  border-radius: 50%;
+  /* Make the button round */
+  padding: 0;
+  /* Remove padding */
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background-color: #fff;
+  /* Change to white when in dark mode */
+  color: #333;
+  /* Change text/icon to dark */
+}
+
+/* Ensure dark background in timeline panels in dark mode */
+body.dark-mode .timeline-panel {
+  background-color: #121212 !important;
+  /* Force dark background */
+  color: #ffffff !important;
+  /* Ensure text is white */
+}
+
+/* Ensure light mode has no gray backgrounds */
+body .timeline-panel {
+  background-color: transparent !important;
+  /* No background in light mode */
+  color: inherit;
+  /* Inherit text color */
+}
+
+/* Mantieni il colore originale dei titoli principali in modalità scura */
+body.dark-mode .timeline-heading h3,
+body.dark-mode .timeline-panel .timeline-title {
+  color: #333 !important;
+  /* Colore originale per i titoli principali */
+}
+
+/* Cambia il colore dei titoli secondari (come Junior Production Engineer) in bianco in modalità scura */
+body.dark-mode .timeline-heading h3+ul li a,
+body.dark-mode .timeline-panel .timeline-title {
+  color: #fff !important;
+  /* Colore bianco per i titoli secondari */
+}

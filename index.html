@@ -8,25 +8,23 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<title>Filippo Petri | Home</title>
-	
 	<meta name="description" content="Filippo Petri | Portfolio" />
 	<meta name="author" content="&copy; Filippo Petri - Theme (modified): freehtml5.co" />
 
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="images/icon.png"/>
+	<link rel="icon" type="image/png" href="images/icon.png" />
 
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-	
+
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 
 	<!-- Icomoon Icon Fonts-->
 	<link rel="stylesheet" href="css/icomoon.css">
-	
+
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
@@ -35,272 +33,335 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+</head>
 
-	</head>
-	<body>
-		<body oncopy="return false" oncut="return false" onpaste="return false">
+<body>
 	<div class="fh5co-loader"></div>
 
 	<!-- Responsive image header -->
-	<div id="page">	
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/Panorama.jpg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<div class="profile-thumb" style="background: url(images/ProPic.jpg);"></div>
-							<h1><span>Filippo Petri</span></h1>
-							<h3><span>Italy • Electronic Engineer • Maker</span></h3>
-							<p>
-								<!-- Links -->
+	<div id="page">
+		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"
+			style="background-image:url(images/Panorama.jpg);" data-stellar-background-ratio="0.5">
+			<div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<div class="display-t js-fullheight">
+							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+								<div class="profile-thumb" style="background: url(images/ProPic.jpg);"></div>
+								<h1><span>Filippo Petri</span></h1>
+								<h3><span>Italy • Electronic Engineer • Maker</span></h3>
+								<p>
 								<ul class="fh5co-social-icons">
 									<li><a href="mailto:info@filippopetri.com"><i class="icon-envelope2"></i></a></li>
-									<li><a href="https://www.linkedin.com/in/filippo-petri/"><i class="icon-linkedin2"></i></a></li>
-									<li><a href="https://www.instagram.com/filippo_petri/"><i class="icon-instagram2"></i></a></li>
-									<li><a href="https://www.facebook.com/filippo.petri.98/"><i class="icon-facebook3"></i></a></li>
+									<li><a href="https://www.linkedin.com/in/filippo-petri/"><i
+												class="icon-linkedin2"></i></a></li>
+									<li><a href="https://www.instagram.com/filippo_petri/"><i
+												class="icon-instagram2"></i></a></li>
+									<li><a href="https://www.facebook.com/filippo.petri.98/"><i
+												class="icon-facebook3"></i></a></li>
 									<li><a href="https://github.com/filippopetri"><i class="icon-github2"></i></a></li>
 								</ul>
-							</p>
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 
-	<!-- About me -->
-	<div id="fh5co-about" class="animate-box">
-		<div class="container text-center">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>About Me</h2>
+		<!-- Dark Mode Toggle Button -->
+		<button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
+		<!-- About me -->
+		<div id="fh5co-about" class="animate-box">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>About Me</h2>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-12">
-				<p>My name is Filippo Petri, I am an italian electronic engineer, graduated at the <a href="https://www.uniud.it/it">University of Udine</a>.</p>
-				<p>I also graduated as electronic technician at the <a href="https://malignani.edu.it/">I.S.I.S. A. Malignani Udine</a>. Ever since I was a child I enjoyed tinkering with electronics and mechanics. I also love photography, experimenting with software, mechanics, robotics, web design and fabricating things with 3D printers and CNC machines.</p>
-				<p>Thanks to the knowledge I acquired in school and university courses, together with the making of many personal projects, I developed skills in CAD design, PCB making, networking, web developing, Arduino, software engineering and more. I am always interested in learning new stuff, making experience and improving my skills.</p>
-			</div>
-			</div>
-		</div>
-
-	<!-- My resume -->
-	<div id="fh5co-resume" class="fh5co-bg-color">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>My Resume</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline">
-
-						<!-- Work experience -->
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>Work Experience</h3></div>
-						</li>
-
-						<!-- Eurotech -->
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Junior Production Engineer</h3>
-									<span class="company"><a href="https://www.eurotech.com/">Eurotech S.p.A</a> - Amaro (UD) • 2024</span>
-								</div>
-
-							</div>
-						</li>
-
-						<!-- Erasmus+ -->
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Erasmus+ Traineeship</h3>
-									<span class="company"><a href="https://www.tvh.com/">TVH</a> - Waregem (BE) • 2017</span>
-								</div>
-
-							</div>
-						</li>
-
-						<!-- Internship -->
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Mechatronics technician</h3>
-									<span class="company"><a href="https://www.pittini.it/">Pittini group</a> - Osoppo (UD) • 2016</span>
-								</div>
-							</div>
-						</li>
-
-						<br>
-
-						<!-- Education -->
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>Education</h3></div>
-						</li>
-
-						<!-- University -->
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Electronic Engineering degree</h3>
-									<span class="company"><a href="https://uniud.it">University of Udine</a> • 2017 - 2024</span>
-								</div>
-							</div>
-						</li>
-
-						<!-- High school -->
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Electronic technician graduation</h3>
-									<span class="company"><a href="https://malignani.edu.it/">A. Malignani</a> - Udine • 2012 - 2017</span>
-								</div>
-							</div>
-						</li>
-
-						<br>
-
-						<!-- Certifications -->
-						<li class="timeline-heading text-center animate-box">
-							<div><h3>Certifications</h3></div>
-						</li>
-
-						<!-- FCE -->
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-text-document-inverted"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">First Certificate in English (B2)</h3>
-									<span class="company"><a href="https://www.cambridgeenglish.org/">Cambridge Assessment English</a> • 2017</span>
-								</div>
-							</div>
-						</li>
-
-						<!-- Solidworks -->
-						<li class="animate-box timeline-unverted">
-							<div class="timeline-badge"><i class="icon-text-document-inverted"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Solidworks course certification</h3>
-									<span class="company"><a href="https://www.enaip.fvg.it/">Enaip FVG</a> • 2016</span>
-								</div>
-							</div>
-						</li>
-
-						<!-- ICDL -->
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge"><i class="icon-text-document-inverted"></i></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">ICDL Certification</h3>
-									<span class="company"><a href="https://www.aicanet.it/">AICA</a> • 2016</span>
-								</div>
-							</div>
-						</li>
-			    	</ul>
+				<div class="col-md-12">
+					<p>My name is Filippo Petri, I am an italian electronic engineer, graduated at the <a
+							href="https://www.uniud.it/it">University of Udine</a>.</p>
+					<p>I also graduated as electronic technician at the <a href="https://malignani.edu.it/">I.S.I.S. A.
+							Malignani Udine</a>. Ever since I was a child I enjoyed tinkering with electronics and
+						mechanics. I also love photography, experimenting with software, mechanics, robotics, web design
+						and fabricating things with 3D printers and CNC machines.</p>
+					<p>Thanks to the knowledge I acquired in school and university courses, together with the making of
+						many personal projects, I developed skills in CAD design, PCB making, networking, web
+						developing, Arduino, software engineering and more. I am always interested in learning new
+						stuff, making experience and improving my skills.</p>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<!-- Projects -->
-	<div id="fh5co-work" class="fh5co-bg-dark">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Projects:</h2>
-				</div>
-			</div>
-			<div class="row">
 
-				<!-- Hexy -->
-				<div class="col-md-6 text-center col-padding animate-box">
-					<a href="Hexy.html" class="work" style="background-image: url(images/Hexy.jpg);">
-						<div class="desc">
-							<h3>Hexy</h3>
-							<span style="color:orange">Hexapod robot</span>
-						</div>
-					</a>
+		<!-- My resume -->
+		<div id="fh5co-resume" class="fh5co-bg-color">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>My Resume</h2>
+					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-12 col-md-offset-0">
+						<ul class="timeline">
 
-				<!-- TNA -->
-				<div class="col-md-6 text-center col-padding animate-box">
-					<a href="TNA.html" class="work" style="background-image: url(images/TNA.png);">
-						<div class="desc">
-							<h3>TNA web app</h3>
-							<span style="color:orange">Full e-commerce web app</span>
-						</div>
-					</a>
-				</div>
+							<!-- Work experience -->
+							<li class="timeline-heading text-center animate-box">
+								<div>
+									<h3>Work Experience</h3>
+								</div>
+							</li>
 
-				<!-- Smart Thermostat -->
-				<div class="col-md-6 text-center col-padding animate-box">
-					<a href="SmartThermostat.html" class="work" style="background-image: url(images/SmartThermostat.png);">
-						<div class="desc">
-							<h3>Smart Thermostat</h3>
-							<span style="color:orange">Electronic engineering thesis</span>
-						</div>
-					</a>
-				</div>
+							<!-- Eurotech -->
+							<li class="timeline-inverted animate-box">
+								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">Junior Production Engineer</h3>
+										<span class="company"><a href="https://www.eurotech.com/">Eurotech S.p.A</a> -
+											Amaro (UD) • 2024</span>
+									</div>
 
-				<!-- Turtlebot -->
-				<div class="col-md-6 text-center col-padding animate-box">
-					<a href="Turtlebot.html" class="work" style="background-image: url(images/Turtlebot.jpg);">
-						<div class="desc">
-							<h3>Turtlebot</h3>
-							<span style="color:orange">Quadruped robot</span>
-						</div>
-					</a>
+								</div>
+							</li>
+
+							<!-- Erasmus+ -->
+							<li class="animate-box timeline-unverted">
+								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">Erasmus+ Traineeship</h3>
+										<span class="company"><a href="https://www.tvh.com/">TVH</a> - Waregem (BE) •
+											2017</span>
+									</div>
+
+								</div>
+							</li>
+
+							<!-- Internship -->
+							<li class="timeline-inverted animate-box">
+								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">Mechatronics technician</h3>
+										<span class="company"><a href="https://www.pittini.it/">Pittini group</a> -
+											Osoppo (UD) • 2016</span>
+									</div>
+								</div>
+							</li>
+
+							<br>
+
+							<!-- Education -->
+							<li class="timeline-heading text-center animate-box">
+								<div>
+									<h3>Education</h3>
+								</div>
+							</li>
+
+							<!-- University -->
+							<li class="timeline-inverted animate-box">
+								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">Electronic Engineering degree</h3>
+										<span class="company"><a href="https://uniud.it">University of Udine</a> • 2017
+											- 2024</span>
+									</div>
+								</div>
+							</li>
+
+							<!-- High school -->
+							<li class="animate-box timeline-unverted">
+								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">Electronic technician graduation</h3>
+										<span class="company"><a href="https://malignani.edu.it/">A. Malignani</a> -
+											Udine • 2012 - 2017</span>
+									</div>
+								</div>
+							</li>
+
+							<br>
+
+							<!-- Certifications -->
+							<li class="timeline-heading text-center animate-box">
+								<div>
+									<h3>Certifications</h3>
+								</div>
+							</li>
+
+							<!-- FCE -->
+							<li class="timeline-inverted animate-box">
+								<div class="timeline-badge"><i class="icon-text-document-inverted"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">First Certificate in English (B2)</h3>
+										<span class="company"><a href="https://www.cambridgeenglish.org/">Cambridge
+												Assessment English</a> • 2017</span>
+									</div>
+								</div>
+							</li>
+
+							<!-- Solidworks -->
+							<li class="animate-box timeline-unverted">
+								<div class="timeline-badge"><i class="icon-text-document-inverted"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">Solidworks course certification</h3>
+										<span class="company"><a href="https://www.enaip.fvg.it/">Enaip FVG</a> •
+											2016</span>
+									</div>
+								</div>
+							</li>
+
+							<!-- ICDL -->
+							<li class="timeline-inverted animate-box">
+								<div class="timeline-badge"><i class="icon-text-document-inverted"></i></div>
+								<div class="timeline-panel">
+									<div class="timeline-heading">
+										<h3 class="timeline-title">ICDL Certification</h3>
+										<span class="company"><a href="https://www.aicanet.it/">AICA</a> • 2016</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<!-- Footer -->
-	<div id="fh5co-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<h6> &copy; <script>document.write(new Date().getFullYear())</script> Filippo Petri • <a href="https://github.com/filippopetri/Website">source code</a></h6>
-					<h6> Template (modified): <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h6>
+		<!-- Projects -->
+		<div id="fh5co-work" class="fh5co-bg-dark">
+			<div class="container">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<h2>Projects:</h2>
+					</div>
+				</div>
+				<div class="row">
+
+					<!-- Hexy -->
+					<div class="col-md-6 text-center col-padding animate-box">
+						<a href="Hexy.html" class="work" style="background-image: url(images/Hexy.jpg);">
+							<div class="desc">
+								<h3>Hexy</h3>
+								<span style="color:orange">Hexapod robot</span>
+							</div>
+						</a>
+					</div>
+
+					<!-- TNA -->
+					<div class="col-md-6 text-center col-padding animate-box">
+						<a href="TNA.html" class="work" style="background-image: url(images/TNA.png);">
+							<div class="desc">
+								<h3>TNA web app</h3>
+								<span style="color:orange">Full e-commerce web app</span>
+							</div>
+						</a>
+					</div>
+
+					<!-- Smart Thermostat -->
+					<div class="col-md-6 text-center col-padding animate-box">
+						<a href="SmartThermostat.html" class="work"
+							style="background-image: url(images/SmartThermostat.png);">
+							<div class="desc">
+								<h3>Smart Thermostat</h3>
+								<span style="color:orange">Electronic engineering thesis</span>
+							</div>
+						</a>
+					</div>
+
+					<!-- Turtlebot -->
+					<div class="col-md-6 text-center col-padding animate-box">
+						<a href="Turtlebot.html" class="work" style="background-image: url(images/Turtlebot.jpg);">
+							<div class="desc">
+								<h3>Turtlebot</h3>
+								<span style="color:orange">Quadruped robot</span>
+							</div>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
+		<!-- Footer -->
+		<div id="fh5co-footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h6> &copy;
+							<script data-cfasync="false"
+								src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+							<script
+								type="67c00fc1761c946242af7954-text/javascript">document.write(new Date().getFullYear())</script>
+							Filippo Petri • <a href="https://github.com/filippopetri/Website">source code</a>
+						</h6>
+						<h6> Template (modified): <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h6>
+					</div>
+				</div>
+			</div>
+		</div>
 
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
+		<div class="gototop js-top">
+			<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+		</div>
 
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
+		<!-- jQuery -->
+		<script src="js/jquery.min.js"></script>
 
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
 
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	
-	<!-- Main -->
-	<script src="js/main.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
 
-	</body>
+		<!-- Waypoints -->
+		<script src="js/jquery.waypoints.min.js"></script>
+
+		<!-- Stellar Parallax -->
+		<script src="js/jquery.stellar.min.js"></script>
+
+		<!-- Main -->
+		<script src="js/main.js"></script>
+
+		<!-- Dark Mode JavaScript -->
+		<script>
+			// Check if dark mode is already enabled from localStorage
+			window.addEventListener('DOMContentLoaded', (event) => {
+				if (localStorage.getItem('darkMode') === 'enabled') {
+					document.body.classList.add('dark-mode');
+					document.getElementById('darkModeToggle').innerHTML = '🌞'; // Change to sun icon
+				}
+			});
+
+			// Toggle dark mode and save the state to localStorage
+			function toggleDarkMode() {
+				const darkModeButton = document.getElementById('darkModeToggle');
+
+				// Toggle the dark-mode class on the body
+				document.body.classList.toggle('dark-mode');
+
+				// Check if dark mode is active and store the state in localStorage
+				if (document.body.classList.contains('dark-mode')) {
+					localStorage.setItem('darkMode', 'enabled');
+					darkModeButton.innerHTML = '🌞'; // Change to sun when in dark mode
+				} else {
+					localStorage.setItem('darkMode', 'disabled');
+					darkModeButton.innerHTML = '🌙'; // Change to moon when in light mode
+				}
+			}
+
+		</script>
+
+</body>
+
 </html>
+
 
 <!-- License & credits:
 
