@@ -144,16 +144,18 @@
 
     <!-- Dark Mode JavaScript -->
     <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            // Verifica se la modalità scura è attiva
-            const darkModeStatus = sessionStorage.getItem('darkMode');
+        // Aggiungi un check per assicurarti che il codice venga eseguito quando la pagina è completamente caricata
+        document.addEventListener('DOMContentLoaded', function () {
+            const darkModeStatus = localStorage.getItem('darkMode');
             const darkModeButton = document.getElementById('darkModeToggle');
 
+            // Verifica se la modalità scura è attiva
             if (darkModeStatus === 'enabled') {
                 document.body.classList.add('dark-mode');
-                darkModeButton.innerHTML = '🌞'; // Cambia l'icona a "sole" quando la modalità scura è attiva
+                darkModeButton.innerHTML = '🌞'; // Cambia l'icona a "sole"
             } else {
-                darkModeButton.innerHTML = '🌙'; // Cambia l'icona a "luna" quando la modalità scura è disattiva
+                document.body.classList.remove('dark-mode');
+                darkModeButton.innerHTML = '🌙'; // Cambia l'icona a "luna"
             }
         });
 
@@ -162,15 +164,19 @@
             const darkModeButton = document.getElementById('darkModeToggle');
 
             // Alterna la classe dark-mode sul body
-            document.body.classList.toggle('dark-mode');
+            const isDarkModeEnabled = document.body.classList.toggle('dark-mode');
 
-            // Salva lo stato della modalità scura nel sessionStorage
-            if (document.body.classList.contains('dark-mode')) {
-                sessionStorage.setItem('darkMode', 'enabled');
-                darkModeButton.innerHTML = '🌞'; // Cambia a "sole" quando la modalità scura è attiva
-            } else {
-                sessionStorage.setItem('darkMode', 'disabled');
-                darkModeButton.innerHTML = '🌙'; // Cambia a "luna" quando la modalità scura è disattiva
+            // Salva lo stato della modalità scura nel localStorage
+            try {
+                if (isDarkModeEnabled) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    darkModeButton.innerHTML = '🌞'; // Cambia a "sole"
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                    darkModeButton.innerHTML = '🌙'; // Cambia a "luna"
+                }
+            } catch (e) {
+                console.error("Errore durante l'accesso a localStorage:", e);
             }
         }
     </script>
