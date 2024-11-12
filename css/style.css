@@ -1293,6 +1293,11 @@ input[type="text"] {
 /*# sourceMappingURL=style.css.map */
 
 /* Dark mode theme*/
+
+.dark-mode .fh5co-loader {
+  background-color: #2e2e2e;
+}
+
 body.dark-mode {
   background-color: #2e2e2e; /* Dark gray background */
   color: #ffffff;
