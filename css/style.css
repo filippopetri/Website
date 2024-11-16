@@ -1291,18 +1291,6 @@ input[type="text"] {
 }
 
 /*# sourceMappingURL=style.css.map */
-/* Hide content while theme is being applied */
-body {
-  visibility: hidden;
-}
-
-body.dark-mode {
-  visibility: visible;
-}
-
-body:not(.dark-mode) {
-  visibility: visible;
-}
 
 /* Dark mode theme*/
 .dark-mode .fh5co-loader {
