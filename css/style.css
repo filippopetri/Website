@@ -1291,10 +1291,22 @@ input[type="text"] {
 }
 
 /*# sourceMappingURL=style.css.map */
+/* Hide content while theme is being applied */
+body {
+  visibility: hidden;
+}
+
+body.dark-mode {
+  visibility: visible;
+}
+
+body:not(.dark-mode) {
+  visibility: visible;
+}
 
 /* Dark mode theme*/
 .dark-mode .fh5co-loader {
-  background: url(../images/loader.gif) center no-repeat #2e2e2e !important;
+  background-color: #2e2e2e !important; /* Dark gray background */
 }
 
 body.dark-mode {
