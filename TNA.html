@@ -168,8 +168,13 @@
             const darkModeStatus = localStorage.getItem('darkMode');
             const darkModeButton = document.getElementById('darkModeToggle');
 
-            // Verifica se la modalità scura è attiva
-            if (darkModeStatus === 'enabled') {
+            // Se non è impostata alcuna preferenza, abilita di default la dark mode
+            if (!darkModeStatus) {
+                localStorage.setItem('darkMode', 'enabled');
+            }
+
+            // Verifica lo stato della modalità scura e applica le modifiche
+            if (darkModeStatus === 'enabled' || !darkModeStatus) {
                 document.body.classList.add('dark-mode');
                 darkModeButton.innerHTML = '🌞'; // Cambia l'icona a "sole"
             } else {
