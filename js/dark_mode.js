@@ -1,44 +1,46 @@
-// Check dark mode preference on initial load
-const darkModeStatus = localStorage.getItem('darkMode'); // Retrieve stored dark mode status
-
-// Apply dark mode based on localStorage immediately
-if (darkModeStatus === 'enabled') {
-    document.body.classList.add('dark-mode');
-} else {
-    document.body.classList.remove('dark-mode');
-}
-
-// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-    const loader = document.querySelector('.fh5co-loader'); // Select loader
-    const darkModeButton = document.getElementById('darkModeToggle'); // Toggle button for dark mode
+    const loader = document.querySelector('.fh5co-loader');
+    const darkModeButton = document.getElementById('darkModeToggle');
+    let darkModeStatus = localStorage.getItem('darkMode');
 
-    // Apply initial loader background based on dark mode
-    if (darkModeStatus === 'enabled') {
-        loader.style.backgroundColor = '#2e2e2e'; // Set loader to dark mode background
-        if (darkModeButton) darkModeButton.innerHTML = '🌞'; // Switch to sun icon
-    } else {
-        loader.style.backgroundColor = '#fff'; // Set loader to light mode background
-        if (darkModeButton) darkModeButton.innerHTML = '🌙'; // Switch to moon icon
+    // Check if darkModeStatus is null, then set default
+    if (darkModeStatus === null) {
+        darkModeStatus = 'enabled';
+        localStorage.setItem('darkMode', darkModeStatus);
     }
+
+    // Apply the dark or light theme based on stored status
+    if (darkModeStatus === 'enabled') {
+        document.body.classList.add('dark-mode');  // Apply dark mode
+        loader.style.backgroundColor = '#2e2e2e'; // Dark background for loader
+        if (darkModeButton) darkModeButton.innerHTML = '🌞'; // Sun icon for dark mode
+    } else {
+        document.body.classList.remove('dark-mode'); // Apply light mode
+        loader.style.backgroundColor = '#fff'; // Light background for loader
+        if (darkModeButton) darkModeButton.innerHTML = '🌙'; // Moon icon for light mode
+    }
+
+    // Make the page content visible after theme is applied
+    document.body.classList.add('theme-ready');
 });
 
-// Function to toggle dark mode
+// Toggle dark mode on button click and store preference in localStorage
 function toggleDarkMode() {
     const darkModeButton = document.getElementById('darkModeToggle');
-    const loader = document.querySelector('.fh5co-loader'); // Make sure loader is selected
+    const loader = document.querySelector('.fh5co-loader');
 
+    // Toggle the 'dark-mode' class
     const isDarkModeEnabled = document.body.classList.toggle('dark-mode');
 
     try {
         if (isDarkModeEnabled) {
             localStorage.setItem('darkMode', 'enabled');
-            loader.style.backgroundColor = '#2e2e2e'; // Set loader to dark background
-            if (darkModeButton) darkModeButton.innerHTML = '🌞'; // Switch to sun icon
+            loader.style.backgroundColor = '#2e2e2e'; // Dark background for loader
+            if (darkModeButton) darkModeButton.innerHTML = '🌞'; // Sun icon
         } else {
             localStorage.setItem('darkMode', 'disabled');
-            loader.style.backgroundColor = '#fff'; // Set loader to light background
-            if (darkModeButton) darkModeButton.innerHTML = '🌙'; // Switch to moon icon
+            loader.style.backgroundColor = '#fff'; // Light background for loader
+            if (darkModeButton) darkModeButton.innerHTML = '🌙'; // Moon icon
         }
     } catch (e) {
         console.error("localStorage error:", e);
