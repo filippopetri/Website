@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const loader = document.querySelector('.fh5co-loader'); // Seleziona il loader
-    const darkModeButton = document.getElementById('darkModeToggle'); // Pulsante per alternare modalità
-    let darkModeStatus = localStorage.getItem('darkMode'); // Recupera stato
+    const darkModeButton = document.getElementById('darkModeToggle');
+    let darkModeStatus = localStorage.getItem('darkMode');
 
     // Se non è impostato, abilita di default la dark mode
     if (!darkModeStatus) {
@@ -11,11 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Applica lo stato salvato
     if (darkModeStatus === 'enabled') {
-        if (loader) loader.style.backgroundColor = "#2e2e2e";
         document.body.classList.add('dark-mode');
         if (darkModeButton) darkModeButton.innerHTML = '🌞'; // Cambia icona a "sole"
     } else {
-        if (loader) loader.style.backgroundColor = "#fff";
         document.body.classList.remove('dark-mode');
         if (darkModeButton) darkModeButton.innerHTML = '🌙'; // Cambia icona a "luna"
     }
@@ -24,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // Funzione per alternare la modalità scura
 function toggleDarkMode() {
     const darkModeButton = document.getElementById('darkModeToggle');
-    const loader = document.querySelector('.fh5co-loader'); // Assicurati di avere il loader
 
     // Alterna la modalità
     const isDarkModeEnabled = document.body.classList.toggle('dark-mode');
@@ -32,11 +28,9 @@ function toggleDarkMode() {
     try {
         if (isDarkModeEnabled) {
             localStorage.setItem('darkMode', 'enabled');
-            if (loader) loader.style.backgroundColor = "#2e2e2e";
             if (darkModeButton) darkModeButton.innerHTML = '🌞'; // Cambia a "sole"
         } else {
             localStorage.setItem('darkMode', 'disabled');
-            if (loader) loader.style.backgroundColor = "#fff";
             if (darkModeButton) darkModeButton.innerHTML = '🌙'; // Cambia a "luna"
         }
     } catch (e) {

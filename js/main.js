@@ -120,4 +120,13 @@
 	});
 
 
+	// Year 
+	document.addEventListener('DOMContentLoaded', function() {
+		const yearElement = document.getElementById('year');
+		if (yearElement) {
+			yearElement.textContent = new Date().getFullYear(); // Inserisce l'anno corrente
+		}
+	});
+
+
 }());
