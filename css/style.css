@@ -1294,7 +1294,7 @@ input[type="text"] {
 
 /* Dark mode theme*/
 .dark-mode .fh5co-loader {
-  background: url(../images/loader.gif) center no-repeat #2e2e2e;
+  background: url(../images/loader.gif) center no-repeat #2e2e2e !important;
 }
 
 body.dark-mode {
