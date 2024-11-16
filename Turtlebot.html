@@ -150,48 +150,7 @@
     <script src="js/main.js"></script>
 
     <!-- Dark Mode JavaScript -->
-    <script>
-        // Aggiungi un check per assicurarti che il codice venga eseguito quando la pagina è completamente caricata
-        document.addEventListener('DOMContentLoaded', function () {
-            const darkModeStatus = localStorage.getItem('darkMode');
-            const darkModeButton = document.getElementById('darkModeToggle');
-
-            // Se non è impostata alcuna preferenza, abilita di default la dark mode
-            if (!darkModeStatus) {
-                localStorage.setItem('darkMode', 'enabled');
-            }
-
-            // Verifica lo stato della modalità scura e applica le modifiche
-            if (darkModeStatus === 'enabled' || !darkModeStatus) {
-                document.body.classList.add('dark-mode');
-                darkModeButton.innerHTML = '🌞'; // Cambia l'icona a "sole"
-            } else {
-                document.body.classList.remove('dark-mode');
-                darkModeButton.innerHTML = '🌙'; // Cambia l'icona a "luna"
-            }
-        });
-
-        // Funzione per alternare la modalità scura
-        function toggleDarkMode() {
-            const darkModeButton = document.getElementById('darkModeToggle');
-
-            // Alterna la classe dark-mode sul body
-            const isDarkModeEnabled = document.body.classList.toggle('dark-mode');
-
-            // Salva lo stato della modalità scura nel localStorage
-            try {
-                if (isDarkModeEnabled) {
-                    localStorage.setItem('darkMode', 'enabled');
-                    darkModeButton.innerHTML = '🌞'; // Cambia a "sole"
-                } else {
-                    localStorage.setItem('darkMode', 'disabled');
-                    darkModeButton.innerHTML = '🌙'; // Cambia a "luna"
-                }
-            } catch (e) {
-                console.error("localStorage error:", e);
-            }
-        }
-    </script>
+    <script src="js/dark_mode.js"></script>
 
 </body>
 
