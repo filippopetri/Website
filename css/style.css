@@ -62,6 +62,18 @@ p {
   margin-bottom: 30px;
 }
 
+figure {
+    text-align: center; /* centra immagine e didascalia */
+    margin: 0 auto 20px auto; /* margine sotto per separare le figure */
+}
+
+figcaption {
+    font-size: 0.85em; /* carattere più piccolo */
+    color: #ccc;       /* colore leggermente più chiaro */
+    margin-top: 5px;   /* piccolo spazio sopra la didascalia */
+}
+
+
 h1, h2, h3, h4, h5, h6, figure {
   color: #000;
   font-family: "Space Mono", Arial, serif;
