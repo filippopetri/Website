@@ -115,7 +115,7 @@ var darkModeButton = function () {
 
     // Mostra/nascondi in base allo scroll
     $(window).on('scroll', function () {
-        if ($(window).scrollTop() < 100) {
+        if ($(window).scrollTop() < 1000) {
             $btn.addClass('active'); // mostra
         } else {
             $btn.removeClass('active'); // nascondi
@@ -123,7 +123,7 @@ var darkModeButton = function () {
     });
 
     // Controllo iniziale
-    if ($(window).scrollTop() < 100) {
+    if ($(window).scrollTop() < 1000) {
         $btn.addClass('active');
     }
 
