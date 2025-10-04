@@ -1322,6 +1322,15 @@ body.dark-mode .fh5co-social-icons a {
   color: #ffffff;
 }
 
+#darkModeToggle {
+    transition: opacity 0.3s;
+    opacity: 0;
+}
+#darkModeToggle.active {
+    opacity: 1;
+}
+
+
 /* Ensure that text in the About Me and Footer is white in dark mode */
 body.dark-mode #fh5co-about,
 body.dark-mode #fh5co-footer {
