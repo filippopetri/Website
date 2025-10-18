@@ -1579,14 +1579,7 @@ body.dark-mode .fh5co-social-icons a {
   color: #ffffff;
 }
 
-#darkModeToggle {
-  transition: opacity 0.3s;
-  opacity: 0;
-}
 
-#darkModeToggle.active {
-  opacity: 1;
-}
 
 
 /* Ensure that text in the About Me and Footer is white in dark mode */
@@ -1920,7 +1913,46 @@ body.dark-mode .navbar-toggle .bar {
   body.dark-mode #topNav .nav > li > a {
     color: #fff;
   }
-  #topNav .nav > li > a:hover {
-    color: #FF9000;  /* colore hover valido per entrambi */
-  }
+}
+
+/* Dark Mode toggle */
+
+#darkModeToggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+    z-index: 1000;
+}
+
+/* Light mode */
+#darkModeToggle.light-mode {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+/* Dark mode */
+#darkModeToggle.dark-mode {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+#darkModeToggle {
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+#darkModeToggle.active {
+  opacity: 1;
 }
