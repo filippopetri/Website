@@ -108,28 +108,43 @@
 		$(".fh5co-loader").fadeOut("slow");
 	};
 
-var darkModeButton = function () {
-    const $btn = $('#darkModeToggle');
+	var darkModeButton = function () {
+		const $btn = $('#darkModeToggle');
 
-    if (!$btn.length) return; // evita errori se il pulsante non esiste ancora
+		if (!$btn.length) return; // evita errori se il pulsante non esiste ancora
 
-    // Mostra/nascondi in base allo scroll
-    $(window).on('scroll', function () {
-        if ($(window).scrollTop() < 1000) {
-            $btn.addClass('active'); // mostra
-        } else {
-            $btn.removeClass('active'); // nascondi
-        }
-    });
+		// Mostra/nascondi in base allo scroll
+		$(window).on('scroll', function () {
+			if ($(window).scrollTop() < 1000) {
+				$btn.addClass('active'); // mostra
+			} else {
+				$btn.removeClass('active'); // nascondi
+			}
+		});
 
-    // Controllo iniziale
-    if ($(window).scrollTop() < 1000) {
-        $btn.addClass('active');
-    }
+		// Controllo iniziale
+		if ($(window).scrollTop() < 1000) {
+			$btn.addClass('active');
+		}
 
-    // Click rimane collegato al tuo onclick HTML
-    // Non aggiungere qui toggleDarkMode(), altrimenti lo IIFE non lo trova
-};
+		// Click rimane collegato al tuo onclick HTML
+		// Non aggiungere qui toggleDarkMode(), altrimenti lo IIFE non lo trova
+	};
+
+	// Padding dinamico per il main rispetto alla navbar
+	var adjustMainPadding = function () {
+		var navbar = document.getElementById('navbar'); // sostituisci con l'id della tua navbar
+		var main = document.querySelector('main');      // o il container principale
+		if (navbar && main) {
+			var navbarHeight = navbar.offsetHeight;
+			main.style.paddingTop = navbarHeight + 'px';
+		}
+	};
+
+	// Esegui al caricamento e al resize
+	window.addEventListener('load', adjustMainPadding);
+	window.addEventListener('resize', adjustMainPadding);
+
 
 
 	$(function () {
@@ -139,8 +154,8 @@ var darkModeButton = function () {
 		fullHeight();
 		parallax();
 		darkModeButton();
-		// pieChart();
-		//skillsWayPoint();
+		topNavHighlight();
+		smoothScrollWithOffset();
 	});
 
 
@@ -151,6 +166,90 @@ var darkModeButton = function () {
 			yearElement.textContent = new Date().getFullYear(); // Inserisce l'anno corrente
 		}
 	});
+
+	// Top Nav scroll highlight
+	var topNavHighlight = function () {
+		const links = document.querySelectorAll('#topNav a');
+
+		const sections = Array.from(links).map(link => {
+			const id = link.getAttribute('href').replace('#', '');
+			const el = document.getElementById(id);
+			return { link, el };
+		});
+
+		const navHeight = document.querySelector('#topNav').offsetHeight || 0;
+
+		function updateActiveLink() {
+			let scrollPos = window.scrollY || document.documentElement.scrollTop;
+
+			let activeFound = false; // evita che più link siano attivi
+			sections.forEach(section => {
+				if (!section.el) return;
+				let top = section.el.offsetTop - navHeight;
+				let bottom = top + section.el.offsetHeight;
+
+				if (!activeFound && scrollPos >= top && scrollPos < bottom) {
+					section.link.classList.add('active');
+					activeFound = true;
+				} else {
+					section.link.classList.remove('active');
+				}
+			});
+
+			// se siamo in cima alla pagina, evidenzia la prima sezione (Home)
+			if (scrollPos < 10) {
+				links.forEach(l => l.classList.remove('active'));
+				if (links[0]) links[0].classList.add('active');
+			}
+		}
+
+		window.addEventListener('scroll', updateActiveLink);
+
+		// aggiorna subito dopo il click su un link
+		links.forEach(link => {
+			link.addEventListener('click', () => {
+				setTimeout(updateActiveLink, 100); // lascia scorrere l'animazione
+			});
+		});
+
+		// update iniziale
+		updateActiveLink();
+	};
+
+var smoothScrollWithOffset = function () {
+	const links = document.querySelectorAll('#topNav a[href^="#"], .fullscreen-menu a[href^="#"]');
+
+	links.forEach(link => {
+		link.addEventListener('click', function (e) {
+			const targetId = this.getAttribute('href');
+			if (targetId.startsWith('#')) {
+				e.preventDefault();
+
+				const targetEl = document.querySelector(targetId);
+				if (targetEl) {
+					const navbar = document.querySelector('#topNav');
+					let navHeight = navbar ? navbar.offsetHeight : 0;
+
+					// Verifica se siamo su mobile (sotto certa larghezza) o se fullscreen menu è aperto
+					if (window.innerWidth < 768) { // breakpoint mobile
+						navHeight = 0; // nessun offset in mobile
+					}
+
+					const targetPos = targetEl.offsetTop - navHeight;
+					window.scrollTo({
+						top: targetPos,
+						behavior: 'smooth'
+					});
+				}
+
+				// chiudi il menu fullscreen se aperto
+				const fullscreenMenu = document.getElementById('fullscreenMenu');
+				if (fullscreenMenu) fullscreenMenu.classList.remove('active');
+			}
+		});
+	});
+};
+
 
 
 }());

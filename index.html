@@ -57,6 +57,44 @@
 
 <body>
 
+	<!-- Top Navigation Bar -->
+	<nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+
+			<!-- Menu Desktop Orizzontale -->
+			<div class="collapse navbar-collapse" id="navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#about">About Me</a></li>
+					<li><a href="#resume">My Resume</a></li>
+					<li><a href="#projects">Projects</a></li>
+				</ul>
+			</div>
+
+			<!-- Fullscreen mobile menu -->
+			<div class="fullscreen-menu" id="fullscreenMenu">
+				<a href="#home">Home</a>
+				<a href="#about">About Me</a>
+				<a href="#resume">My resume</a>
+				<a href="#projects">Projects</a>
+			</div>
+
+			<!-- Hamburger piccolo a sinistra -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+					data-target="#navbar-collapse" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<!-- Hamburger piccolo -->
+					<span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+					<span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+					<span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+				</button>
+			</div>
+		</div>
+	</nav>
+
+
+
 	<!-- Dark Mode JavaScript -->
 	<script src="js/dark_mode.js"></script>
 
@@ -64,7 +102,7 @@
 
 	<!-- Responsive image header -->
 	<div id="page">
-		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"
+		<header id="home" class="fh5co-cover js-fullheight" role="banner"
 			style="background-image:url(images/Panorama.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
@@ -98,7 +136,7 @@
 		<button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
 
 		<!-- About me -->
-		<div id="fh5co-about" class="animate-box">
+		<div id="about" class="animate-box">
 			<div class="container text-center">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -121,7 +159,7 @@
 		</div>
 
 		<!-- My resume -->
-		<div id="fh5co-resume" class="fh5co-bg-color">
+		<div id="resume" class="fh5co-bg-color">
 			<div class="container">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -133,7 +171,7 @@
 						<ul class="timeline">
 
 							<!-- Work experience -->
-							<li class="timeline-heading text-center animate-box">
+							<li id="fh5co-resume-work" class="timeline-heading text-center animate-box">
 								<div>
 									<h3>Work Experience</h3>
 								</div>
@@ -180,7 +218,7 @@
 							<br>
 
 							<!-- Education -->
-							<li class="timeline-heading text-center animate-box">
+							<li id="fh5co-resume-education" class="timeline-heading text-center animate-box">
 								<div>
 									<h3>Education</h3>
 								</div>
@@ -213,7 +251,7 @@
 							<br>
 
 							<!-- Certifications -->
-							<li class="timeline-heading text-center animate-box">
+							<li id="fh5co-resume-certifications" class="timeline-heading text-center animate-box">
 								<div>
 									<h3>Certifications</h3>
 								</div>
@@ -260,11 +298,11 @@
 		</div>
 
 		<!-- Projects -->
-		<div id="fh5co-work" class="fh5co-bg-dark">
+		<div id="projects" class="fh5co-bg-dark">
 			<div class="container">
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Some projects:</h2>
+						<h2>Projects:</h2>
 					</div>
 				</div>
 				<div class="row">
@@ -272,7 +310,7 @@
 					<!-- Smart Thermostat -->
 					<div class="col-md-6 text-center col-padding animate-box">
 						<a href="SmartThermostat.html" class="work"
-							style="background-image: url(images/SmartThermostat.png);">
+							style="background-image: url(images/SmartThermostat_BG.png);">
 							<div class="desc">
 								<h3 style="color:black">Smart Thermostat</h3>
 								<span style="color:orange">Electronic engineering thesis</span>
@@ -353,7 +391,23 @@
 
 		<!-- Main -->
 		<script src="js/main.js"></script>
+		<script>
+			// Hamburger e menu fullscreen
+			const bootstrapHamburger = document.querySelector('.navbar-toggle');
+			const fullscreenMenu = document.getElementById('fullscreenMenu');
 
+			bootstrapHamburger.addEventListener('click', function (e) {
+				e.preventDefault(); // evita il comportamento default Bootstrap
+				fullscreenMenu.classList.toggle('active');
+			});
+
+			// Chiudi menu cliccando un link
+			fullscreenMenu.querySelectorAll('a').forEach(link => {
+				link.addEventListener('click', () => {
+					fullscreenMenu.classList.remove('active');
+				});
+			});
+		</script>
 </body>
 
 </html>
