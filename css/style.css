@@ -1951,8 +1951,10 @@ body.dark-mode .navbar-toggle .bar {
 #darkModeToggle {
   transition: opacity 0.3s;
   opacity: 0;
+  pointer-events: none
 }
 
 #darkModeToggle.active {
   opacity: 1;
+  pointer-events: auto;
 }
