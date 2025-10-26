@@ -245,8 +245,8 @@
 			startX = e.touches[0].clientX;
 			isDragging = true;
 			track.style.transition = 'none';
-		});
-
+		}, { passive: false });
+	
 		track.addEventListener('touchmove', e => {
 			if (!isDragging) return;
 			e.preventDefault();

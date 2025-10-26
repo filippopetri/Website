@@ -1719,15 +1719,19 @@ body.dark-mode .timeline-panel .timeline-title {
 }
 
 .other-projects.full-width {
-    width: 100vw;          /* tutta la larghezza della finestra */
-    overflow: hidden;
-    background-color: #ff9000;
-    padding: 60px 0;       /* altezza verticale */
-    margin-left: calc(-50vw + 50%); /* neutralizza i padding dei container */
+  width: 100vw;
+  /* tutta la larghezza della finestra */
+  overflow: hidden;
+  background-color: #ff9000;
+  padding: 60px 0;
+  /* altezza verticale */
+  margin-left: calc(-50vw + 50%);
+  /* neutralizza i padding dei container */
 }
 
 #fh5co-project-detail {
-    padding-top: 60px; /* lascia spazio alla navbar */
+  padding-top: 60px;
+  /* lascia spazio alla navbar */
 }
 
 .navbar {
@@ -1761,11 +1765,13 @@ body.dark-mode .timeline-panel .timeline-title {
     transform: translateY(-100%);
     transition: transform 0.3s ease;
     overflow-y: auto;
-    background-color: #fff; /* Light mode di default */
+    background-color: #fff;
+    /* Light mode di default */
   }
 
   body.dark-mode .fullscreen-menu {
-    background-color: #222; /* Dark mode */
+    background-color: #222;
+    /* Dark mode */
   }
 
   .fullscreen-menu.active {
@@ -1795,6 +1801,7 @@ body.dark-mode .timeline-panel .timeline-title {
   #topNav .navbar-toggle .icon-bar {
     background-color: #333;
   }
+
   body.dark-mode #topNav .navbar-toggle .icon-bar {
     background-color: #fff;
   }
@@ -1816,13 +1823,15 @@ body.dark-mode .timeline-panel .timeline-title {
   #topNav ul.nav li a {
     font-size: 16px;
     padding: 8px 15px;
-    color: #333; /* Light mode */
+    color: #333;
+    /* Light mode */
     text-decoration: none;
     transition: color 0.2s;
   }
 
   body.dark-mode #topNav ul.nav li a {
-    color: #fff; /* Dark mode */
+    color: #fff;
+    /* Dark mode */
   }
 }
 
@@ -1852,7 +1861,7 @@ body.dark-mode .timeline-panel .timeline-title {
 /* Fullscreen menu link - Light Mode */
 body:not(.dark-mode) .fullscreen-menu a {
   display: block;
-  color: #333; 
+  color: #333;
   font-size: 2rem;
   text-decoration: none;
   transition: color 0.2s;
@@ -1861,7 +1870,8 @@ body:not(.dark-mode) .fullscreen-menu a {
 /* Fullscreen menu link - Dark Mode */
 body.dark-mode .fullscreen-menu a {
   display: block;
-  color: #fff;       /* bianco in dark mode */
+  color: #fff;
+  /* bianco in dark mode */
   font-size: 2rem;
   text-decoration: none;
   transition: color 0.2s;
@@ -1882,14 +1892,16 @@ body.dark-mode .fullscreen-menu a {
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #333; /* visibili in light mode */
+  background-color: #333;
+  /* visibili in light mode */
   margin: 4px 0;
   transition: background-color 0.3s;
 }
 
 /* Dark mode */
 body.dark-mode .navbar-toggle .bar {
-  background-color: #fff; /* visibili in dark mode */
+  background-color: #fff;
+  /* visibili in dark mode */
 }
 
 /* Desktop: nascondi fullscreen menu */
@@ -1898,11 +1910,14 @@ body.dark-mode .navbar-toggle .bar {
     display: none !important;
   }
 }
+
 /* Navbar desktop - Light mode */
 @media (min-width: 768px) {
   body:not(.dark-mode) #topNav.navbar {
-    background-color: #fff;       /* bianca */
-    color: #000;                  /* testo nero */
+    background-color: #fff;
+    /* bianca */
+    color: #000;
+    /* testo nero */
     border: none;
   }
 }
@@ -1910,7 +1925,8 @@ body.dark-mode .navbar-toggle .bar {
 /* Navbar desktop - Dark mode */
 @media (min-width: 768px) {
   body.dark-mode #topNav.navbar {
-    background-color: #222;       /* scura */
+    background-color: #222;
+    /* scura */
     color: #fff;
     border: none;
   }
@@ -1918,10 +1934,11 @@ body.dark-mode .navbar-toggle .bar {
 
 /* Navbar link colors desktop */
 @media (min-width: 768px) {
-  body:not(.dark-mode) #topNav .nav > li > a {
+  body:not(.dark-mode) #topNav .nav>li>a {
     color: #000;
   }
-  body.dark-mode #topNav .nav > li > a {
+
+  body.dark-mode #topNav .nav>li>a {
     color: #fff;
   }
 }
@@ -1929,34 +1946,34 @@ body.dark-mode .navbar-toggle .bar {
 /* Dark Mode toggle */
 
 #darkModeToggle {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
-    z-index: 1000;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.2s;
+  z-index: 1000;
 }
 
 /* Light mode */
 #darkModeToggle.light-mode {
-    background-color: #333;
-    color: #f0f0f0;
+  background-color: #333;
+  color: #f0f0f0;
 }
 
 /* Dark mode */
 #darkModeToggle.dark-mode {
-    background-color: #f0f0f0;
-    color: #333;
+  background-color: #f0f0f0;
+  color: #333;
 }
 
 #darkModeToggle {
@@ -1982,6 +1999,8 @@ body.dark-mode .navbar-toggle .bar {
   display: flex;
   transition: transform 0.6s ease;
   position: relative;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 .carousel-item {
@@ -2023,7 +2042,7 @@ body.dark-mode .caption {
   right: unset;
   transform: translateY(-60%);
   font-size: 1.8rem;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -2037,19 +2056,26 @@ body.dark-mode .caption {
   justify-content: center;
 }
 
-@media (max-width: 768px) { /* breakpoint mobile */
-    .carousel-btn {
-        display: none;
-    }
+@media (max-width: 768px) {
+
+  /* breakpoint mobile */
+  .carousel-btn {
+    display: none;
+  }
 }
 
 /* Posizione specifica */
-.carousel-btn.prev { left: 10px; }
-.carousel-btn.next { right: 10px; }
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
 
 /* Hover */
 .carousel-btn:hover {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 /* Indicatori (dot) */
@@ -2084,55 +2110,58 @@ body.dark-mode .carousel-dots .dot.active {
 
 /* Lightbox */
 .lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.8); /* leggermente più chiaro */
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* spazio attorno all'immagine */
-    box-sizing: border-box;
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* leggermente più chiaro */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* spazio attorno all'immagine */
+  box-sizing: border-box;
 }
 
 .lightbox-img {
-    max-width: 100%;
-    max-height: 90%;
-    width: auto;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    cursor: pointer;
-    transition: transform 0.3s ease;
+  max-width: 100%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .lightbox-img.zoomed {
-    transform: scale(1.1); /* leggera ingrandita */
+  transform: scale(1.1);
+  /* leggera ingrandita */
 }
 
 .lightbox .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    color: #fff;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
 }
 
 /* Per dispositivi mobili */
 @media (max-width: 768px) {
-    .lightbox {
-        padding: 10px;
-    }
+  .lightbox {
+    padding: 10px;
+  }
 
-    .lightbox .close {
-        font-size: 30px;
-        top: 10px;
-        right: 15px;
-    }
+  .lightbox .close {
+    font-size: 30px;
+    top: 10px;
+    right: 15px;
+  }
 }
