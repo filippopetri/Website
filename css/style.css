@@ -18,12 +18,10 @@ body {
   line-height: 1.7;
   color: #4d4d4d;
   background: #fff;
-  overflow-x: hidden
 }
 
 #page {
   position: relative;
-  overflow-x: hidden;
   width: 100%;
   height: 100%;
   -webkit-transition: 0.5s;
@@ -1989,8 +1987,10 @@ body.dark-mode .navbar-toggle .bar {
 .carousel-item {
   flex: 0 0 100%;
   height: 100%;
+  width: 100%;
   text-align: center;
   aspect-ratio: 16 / 9;
+  margin-right: 30px;
   /*overflow: visible;*/
   position: relative;
 }
