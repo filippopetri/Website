@@ -35,13 +35,47 @@
 
 <body>
 
+    <!-- Top Navigation Bar -->
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <!-- Menu Desktop Orizzontale -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="#project-carousel">Project Gallery</a></li>
+                    <li><a href="#projects">Other Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Fullscreen mobile menu -->
+            <div class="fullscreen-menu" id="fullscreenMenu">
+                <a href="index.html">Homepage</a>
+                <a href="#project-carousel">Project Gallery</a>
+                <a href="#projects">Other Projects</a>
+            </div>
+
+            <!-- Hamburger piccolo a sinistra -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <!-- Hamburger piccolo -->
+                    <span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+                    <span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+                    <span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+                </button>
+            </div>
+
+            <!-- Dark Mode Toggle Button -->
+            <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </nav>
+
     <!-- Dark Mode JavaScript -->
     <script src="js/dark_mode.js"></script>
 
     <div class="fh5co-loader"></div>
-
-    <!-- Dark Mode Toggle Button -->
-    <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
 
     <!-- Project Detail Section -->
     <div id="fh5co-project-detail" class="container top-space">
@@ -68,7 +102,7 @@
                 <figure>
                     <img src="images/SmartThermostatVertical.png" alt="Smart Thermostat Vertical View"
                         class="project-image" style="width:50%; height:auto;">
-                    <figcaption>Section view of case and 2 PCBs</figcaption>
+                    <figcaption>Section view of plastic case and 2 boards</figcaption>
                 </figure>
             </div>
 
@@ -93,103 +127,170 @@
             </div>
         </div>
 
-        <div class="row top-space">
-            <div class="col-md-6 text-left animate-box">
-                <figure>
-                    <img src="images/Termostato_PCB.png" alt="Thermostat PCB" class="project-image">
-                    <figcaption>Smart Thermostat</figcaption>
-                </figure>
+        <!-- Slideshow -->
+        <section id="project-carousel" class="container text-center">
+            <h2 class="section-title">Project Gallery</h2>
+
+            <div class="carousel-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="images/Termostato_PCB.png" alt="Thermostat PCB" class="carousel-img">
+                        <p class="caption">Thermostat PCB</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Termostato_PCB_Front.png" alt="Thermostat PCB Display" class="carousel-img">
+                        <p class="caption">Thermostat PCB Display</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Termostato_PCB_ASSEMBLATO.png" alt="Final prototype" class="carousel-img">
+                        <p class="caption">Thermostat PCB assembled</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Termostato_PCB_Front_ASSEMBLATO.png" alt="Final prototype"
+                            class="carousel-img">
+                        <p class="caption">Thermostat PCB Display assembled</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Termostato-staffa.png" alt="Final prototype" class="carousel-img">
+                        <p class="caption">Wall plate installed with magnets</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Termostato-copertura.png" alt="Final prototype" class="carousel-img">
+                        <p class="caption">Front cover with LED and touch pads channels</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Termostato-installato2.png" alt="Final prototype" class="carousel-img">
+                        <p class="caption">Thermostat finished and installed</p>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/Termostato_HA.png" alt="Final prototype" class="carousel-img">
+                        <p class="caption">Home Assistant device</p>
+                    </div>
+                </div>
+
+                <!-- Controlli -->
+                <button class="carousel-btn prev">❮</button>
+                <button class="carousel-btn next">❯</button>
+
+                <!-- Indicatori -->
+                <div class="carousel-dots"></div>
             </div>
-            <div class="col-md-6 text-left animate-box">
-                <figure>
-                    <img src="images/Termostato_PCB_Front.png" alt="Thermostat PCB Front" class="project-image"
-                        style="width:90%; height:auto;">
-                    <figcaption>Smart Thermostat Display</figcaption>
-                </figure>
+        </section>
+
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <img class="lightbox-img" src="">
+        </div>
+
+        <!-- Pulsante e link a GitHub -->
+        <div class="text-center" style="margin-top: 50px;">
+            <p>Check out the project on <a href="https://github.com/filippopetri/SmartThermostat"
+                    target="_blank">GitHub</a>.</p>
+            <p><a href="index.html" class="btn btn-primary">Back to the homepage</a></p>
+        </div>
+
+        <!-- Other Projects Section -->
+        <div id="projects" class="other-projects full-width">
+            <div class="container">
+                <h2 class="text-center">Other Projects</h2>
+                <div class="row">
+                    <div class="col-md-4 text-center project-wrapper">
+                        <a href="Hexy.html" class="work" style="background-image: url(images/Hexy.jpg);">
+                            <div class="desc">
+                                <h3 style="color:black">Hexy</h3>
+                                <span style="color:orange">Hexapod robot</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 text-center project-wrapper">
+                        <a href="TNA.html" class="work" style="background-image: url(images/TNA.png);">
+                            <div class="desc">
+                                <h3 style="color:black">TNA</h3>
+                                <span style="color:orange">Full e-commerce web app</span>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 text-center project-wrapper">
+                        <a href="Turtlebot.html" class="work" style="background-image: url(images/Turtlebot.jpg);">
+                            <div class="desc">
+                                <h3 style="color:black">Turtlebot</h3>
+                                <span style="color:orange">Quadruped robot</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Pulsante e link a GitHub -->
-    <div class="text-center" style="margin-top: 50px;">
-        <p>Check out the project on <a href="https://github.com/filippopetri/SmartThermostat"
-                target="_blank">GitHub</a>.</p>
-        <p><a href="index.html" class="btn btn-primary">Back to the homepage</a></p>
-    </div>
-
-    <!-- Other Projects Section -->
-    <div class="other-projects full-width">
-        <div class="container">
-            <h2 class="text-center">Other Projects</h2>
-            <div class="row">
-                <div class="col-md-4 text-center project-wrapper">
-                    <a href="Hexy.html" class="work" style="background-image: url(images/Hexy.jpg);">
-                        <div class="desc">
-                            <h3 style="color:black">Hexy</h3>
-                            <span style="color:orange">Hexapod robot</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center project-wrapper">
-                    <a href="TNA.html" class="work" style="background-image: url(images/TNA.png);">
-                        <div class="desc">
-                            <h3 style="color:black">TNA</h3>
-                            <span style="color:orange">Full e-commerce web app</span>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 text-center project-wrapper">
-                    <a href="Turtlebot.html" class="work" style="background-image: url(images/Turtlebot.jpg);">
-                        <div class="desc">
-                            <h3 style="color:black">Turtlebot</h3>
-                            <span style="color:orange">Quadruped robot</span>
-                        </div>
-                    </a>
+        <!-- Footer -->
+        <div id="fh5co-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h6> &copy;
+                            <span id="year"></span> Filippo Petri • <a
+                                href="https://github.com/filippopetri/Website">source
+                                code</a>
+                        </h6>
+                        <h6> Template (modified): <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h6>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer -->
-    <div id="fh5co-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h6> &copy;
-                        <span id="year"></span> Filippo Petri • <a href="https://github.com/filippopetri/Website">source
-                            code</a>
-                    </h6>
-                    <h6> Template (modified): <a href="http://freehtml5.co" target="_blank">FreeHTML5.co</a></h6>
-                </div>
-            </div>
+        <div class="gototop js-top">
+            <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
         </div>
-    </div>
 
-    <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-    </div>
+        <!-- jQuery -->
+        <script src="js/jquery.min.js"></script>
 
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
+        <!-- jQuery Easing -->
+        <script src="js/jquery.easing.1.3.js"></script>
 
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
+        <!-- Bootstrap -->
+        <script src="js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
+        <!-- Waypoints -->
+        <script src="js/jquery.waypoints.min.js"></script>
 
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
+        <!-- Stellar Parallax -->
+        <script src="js/jquery.stellar.min.js"></script>
 
-    <!-- Stellar Parallax -->
-    <script src="js/jquery.stellar.min.js"></script>
+        <!-- Main -->
+        <script src="js/main.js"></script>
 
-    <!-- Main -->
-    <script src="js/main.js"></script>
-
-    <!-- Dark Mode JavaScript -->
-    <script src="js/dark_mode.js"></script>
+        <!-- Dark Mode JavaScript -->
+        <script src="js/dark_mode.js"></script>
 
 </body>
 
 </html>
+
+<!-- License & credits:
+
+Template:
+	Template (modified): FREE HTML5 TEMPLATE by FreeHTML5.co - https://freehtml5.co/faq/
+
+Modified content:
+	Copyright (c) 2025 Filippo Petri
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+-->

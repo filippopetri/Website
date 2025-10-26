@@ -44,13 +44,47 @@
 
 <body>
 
+    <!-- Top Navigation Bar -->
+    <nav id="topNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <!-- Menu Desktop Orizzontale -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="#project-carousel">Project Gallery</a></li>
+                    <li><a href="#projects">Other Projects</a></li>
+                </ul>
+            </div>
+
+            <!-- Fullscreen mobile menu -->
+            <div class="fullscreen-menu" id="fullscreenMenu">
+                <a href="index.html">Homepage</a>
+                <a href="#project-carousel">Project Gallery</a>
+                <a href="#projects">Other Projects</a>
+            </div>
+
+            <!-- Hamburger piccolo a sinistra -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#navbar-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <!-- Hamburger piccolo -->
+                    <span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+                    <span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+                    <span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
+                </button>
+            </div>
+
+            <!-- Dark Mode Toggle Button -->
+            <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+        </div>
+    </nav>
+
     <!-- Dark Mode JavaScript -->
     <script src="js/dark_mode.js"></script>
 
     <div class="fh5co-loader"></div>
-
-    <!-- Dark Mode Toggle Button -->
-    <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
 
     <!-- Project Detail Section -->
     <div id="fh5co-project-detail" class="container top-space">
@@ -60,61 +94,130 @@
                 <h3>Full e-commerce web app</h3>
                 <p>Web Applications exam project AA. 2019-2020.</p>
                 <p>The project consists of the creation of a web app for the management of an e-commerce website with
-                    user registration, secure login, many db operations, product search functions, categories filters, profile
+                    user registration, secure login, many db operations, product search functions, categories filters,
+                    profile
                     management, recent orders, shopping cart and organization of available objects.</p>
             </div>
             <div class="col-md-6 animate-box">
-                <img src="images/TNA.png" alt="Hexy" class="project-image">
+                <figure>
+                    <img src="images/TNA.png" alt="Login/Register" class="project-image">
+                    <figcaption>Login/Register</figcaption>
+                </figure>
             </div>
         </div>
 
         <div class="row top-space">
             <div class="col-md-6 text-left animate-box">
-                <img src="images/TNA2.png" alt="Second Image" class="project-image" style="width: 100%; height: auto;">
+                <figure>
+                    <img src="images/TNA2.png" alt="About" class="project-image">
+                    <figcaption>About</figcaption>
+                </figure>
             </div>
             <div class="col-md-6 text-left animate-box">
                 <p>Technologies used:</p>
-<ul style="list-style: none; padding: 0;">
-    <li style="margin-bottom: 10px;">
-        <img src="images/Html5_logo.png" alt="HTML5" style="width:24px; vertical-align:middle; margin-right:8px;">
-        HTML5
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/CSS_logo.png" alt="CSS3" style="width:24px; vertical-align:middle; margin-right:8px;">
-        CSS3
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/JS_logo.png" alt="JavaScript" style="width:24px; vertical-align:middle; margin-right:8px;">
-        JavaScript (JS)
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/Jquery_logo.png" alt="jQuery" style="width:24px; vertical-align:middle; margin-right:8px;">
-        jQuery
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/SemanticUI_logo.png" alt="Semantic UI" style="width:24px; vertical-align:middle; margin-right:8px;">
-        Semantic UI
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/Node_js_logo.png" alt="Node.js" style="width:24px; vertical-align:middle; margin-right:8px;">
-        Node.js
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/Express_logo.png" alt="Express" style="width:24px; vertical-align:middle; margin-right:8px;">
-        Express
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/MongoDB_logo.png" alt="MongoDB" style="width:24px; vertical-align:middle; margin-right:8px;">
-        MongoDB
-    </li>
-    <li style="margin-bottom: 10px;">
-        <img src="images/npm.png" alt="npm" style="width:24px; vertical-align:middle; margin-right:8px;">
-        npm
-    </li>
-</ul>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/Html5_logo.png" alt="HTML5"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        HTML5
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/CSS_logo.png" alt="CSS3"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        CSS3
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/JS_logo.png" alt="JavaScript"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        JavaScript (JS)
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/Jquery_logo.png" alt="jQuery"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        jQuery
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/SemanticUI_logo.png" alt="Semantic UI"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        Semantic UI
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/Node_js_logo.png" alt="Node.js"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        Node.js
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/Express_logo.png" alt="Express"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        Express
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/MongoDB_logo.png" alt="MongoDB"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        MongoDB
+                    </li>
+                    <li style="margin-bottom: 10px;">
+                        <img src="images/npm.png" alt="npm"
+                            style="width:24px; vertical-align:middle; margin-right:8px;">
+                        npm
+                    </li>
+                </ul>
 
             </div>
         </div>
+    </div>
+
+    <br>
+
+    <!-- Slideshow -->
+    <section id="project-carousel" class="container text-center">
+        <h2 class="section-title">Project Gallery</h2>
+
+        <div class="carousel-wrapper">
+            <div class="carousel-track">
+                <div class="carousel-item">
+                    <img src="images/shop.png" alt="Shop" class="carousel-img">
+                    <p class="caption">Shop</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/home.png" alt="Homepage" class="carousel-img">
+                    <p class="caption">Homepage</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/carrello.png" alt="Shopping cart" class="carousel-img">
+                    <p class="caption">Shopping cart</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/profilo1.png" alt="Profile 1" class="carousel-img">
+                    <p class="caption">Profile 1</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/profilo2.png" alt="Profile 2" class="carousel-img">
+                    <p class="caption">Profile 2</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/profilo3.png" alt="Profile 3" class="carousel-img">
+                    <p class="caption">Profile 3</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/profilo4.png" alt="Profile 4" class="carousel-img">
+                    <p class="caption">Profile 4</p>
+                </div>
+            </div>
+
+            <!-- Controlli -->
+            <button class="carousel-btn prev">❮</button>
+            <button class="carousel-btn next">❯</button>
+
+            <!-- Indicatori -->
+            <div class="carousel-dots"></div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-img" src="">
     </div>
 
     <!-- Pulsante e link a GitHub -->
@@ -124,7 +227,7 @@
     </div>
 
     <!-- Other Projects Section -->
-    <div class="other-projects full-width">
+    <div id="projects" class="other-projects full-width">
         <div class="container">
             <h2 class="text-center">Other Projects</h2>
             <div class="row">
@@ -200,3 +303,30 @@
 </body>
 
 </html>
+
+<!-- License & credits:
+
+Template:
+	Template (modified): FREE HTML5 TEMPLATE by FreeHTML5.co - https://freehtml5.co/faq/
+
+Modified content:
+	Copyright (c) 2025 Filippo Petri
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to deal
+	in the Software without restriction, including without limitation the rights
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+-->

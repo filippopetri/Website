@@ -133,13 +133,13 @@
 
 	// Padding dinamico per il main rispetto alla navbar
 	var adjustMainPadding = function () {
-		var navbar = document.getElementById('navbar'); // sostituisci con l'id della tua navbar
-		var main = document.querySelector('main');      // o il container principale
-		if (navbar && main) {
-			var navbarHeight = navbar.offsetHeight;
-			main.style.paddingTop = navbarHeight + 'px';
+		var navbar = document.getElementById('topNav'); // usa l'ID corretto
+		var main = document.querySelector('main');
+		if (navbar && main) { // controllo esistenza
+			main.style.paddingTop = navbar.offsetHeight + 'px';
 		}
 	};
+
 
 	// Esegui al caricamento e al resize
 	window.addEventListener('load', adjustMainPadding);
@@ -154,6 +154,8 @@
 		fullHeight();
 		parallax();
 		darkModeButton();
+		slideShow();
+		lightboxGallery();
 		topNavHighlight();
 		smoothScrollWithOffset();
 	});
@@ -167,6 +169,148 @@
 		}
 	});
 
+	var slideShow = function () {
+		const track = document.querySelector('.carousel-track');
+		if (!track) return;
+		const itemsOriginal = Array.from(track.children);
+		const nextBtn = document.querySelector('.carousel-btn.next');
+		const prevBtn = document.querySelector('.carousel-btn.prev');
+		const dotsContainer = document.querySelector('.carousel-dots');
+		const wrapper = track.parentElement;
+
+		// Clona prima e ultima slide
+		const firstClone = itemsOriginal[0].cloneNode(true);
+		const lastClone = itemsOriginal[itemsOriginal.length - 1].cloneNode(true);
+		track.appendChild(firstClone);
+		track.insertBefore(lastClone, itemsOriginal[0]);
+
+		const items = Array.from(track.children); // ora include i cloni
+		let currentIndex = 1; // partiamo dalla prima reale
+		let isMoving = false; // blocco per click veloci
+
+		const slideStyle = window.getComputedStyle(items[0]);
+		const slideMarginRight = parseInt(slideStyle.marginRight) || 0;
+		const slideWidth = items[0].getBoundingClientRect().width + slideMarginRight;
+
+
+		// Imposta posizione iniziale senza animazione
+		track.style.transition = 'none';
+		track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+		track.offsetHeight; // forza repaint
+		track.style.transition = 'transform 0.6s ease';
+
+		// Crea i dots
+		itemsOriginal.forEach((_, i) => {
+			const dot = document.createElement('span');
+			dot.classList.add('dot');
+			if (i === 0) dot.classList.add('active');
+			dot.addEventListener('click', () => goToSlide(i + 1));
+			dotsContainer.appendChild(dot);
+		});
+
+		const dots = Array.from(dotsContainer.children);
+
+		function goToSlide(index) {
+			if (isMoving) return; // blocca click multipli
+			isMoving = true;
+
+			track.style.transition = 'transform 0.6s ease';
+			currentIndex = index;
+			track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+			updateDots();
+		}
+
+		function updateDots() {
+			// Dots basati sulle slide originali
+			let dotIndex = currentIndex - 1;
+			if (currentIndex === 0) dotIndex = dots.length - 1;
+			else if (currentIndex === items.length - 1) dotIndex = 0;
+			dots.forEach((dot, i) => dot.classList.toggle('active', i === dotIndex));
+		}
+
+		// Eventi bottoni
+		nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+		prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+
+		// Swipe touch
+		let startX = 0;
+		let isDragging = false;
+
+		track.addEventListener('touchstart', e => {
+			startX = e.touches[0].clientX;
+			isDragging = true;
+		});
+
+		track.addEventListener('touchmove', e => {
+			if (!isDragging) return;
+			const currentX = e.touches[0].clientX;
+			const moveX = currentX - startX;
+			track.style.transition = 'none';
+			track.style.transform = `translateX(${-currentIndex * slideWidth + moveX}px)`;
+		});
+
+		track.addEventListener('touchend', e => {
+			isDragging = false;
+			const endX = e.changedTouches[0].clientX;
+			const diff = endX - startX;
+			const threshold = 50;
+			track.style.transition = 'transform 0.6s ease';
+
+			if (diff < -threshold) goToSlide(currentIndex + 1);
+			else if (diff > threshold) goToSlide(currentIndex - 1);
+			else goToSlide(currentIndex);
+		});
+
+		// Loop infinito: reset senza transizione quando si raggiunge un clone
+		track.addEventListener('transitionend', () => {
+			if (currentIndex === 0) { // clone ultima
+				track.style.transition = 'none';
+				currentIndex = itemsOriginal.length;
+				track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+			} else if (currentIndex === items.length - 1) { // clone prima
+				track.style.transition = 'none';
+				currentIndex = 1;
+				track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+			}
+			isMoving = false; // riabilita click
+		});
+	};
+
+
+
+	var lightboxGallery = function () {
+		const lightbox = document.getElementById('lightbox');
+		const lightboxImg = document.querySelector('.lightbox-img');
+		const closeBtn = document.querySelector('.lightbox .close');
+
+		if (!lightbox || !lightboxImg || !closeBtn) return;
+
+		document.querySelectorAll('.carousel-img').forEach(img => {
+			img.addEventListener('click', () => {
+				lightbox.style.display = 'flex';
+				lightboxImg.src = img.src;
+				lightboxImg.classList.remove('zoomed'); // parte normale
+			});
+		});
+
+		// Click sulla X chiude il lightbox
+		closeBtn.addEventListener('click', () => {
+			lightbox.style.display = 'none';
+		});
+
+		// Cliccando sull'immagine si attiva un leggero zoom
+		lightboxImg.addEventListener('click', () => {
+			lightboxImg.classList.toggle('zoomed');
+		});
+
+		// Cliccando fuori dall'immagine chiude il lightbox
+		lightbox.addEventListener('click', e => {
+			if (e.target === lightbox) {
+				lightbox.style.display = 'none';
+			}
+		});
+	};
+
 	// Top Nav scroll highlight
 	var topNavHighlight = function () {
 		const links = document.querySelectorAll('#topNav a');
@@ -177,7 +321,8 @@
 			return { link, el };
 		});
 
-		const navHeight = document.querySelector('#topNav').offsetHeight || 0;
+		const navbarEl = document.querySelector('#topNav');
+		const navHeight = navbarEl ? navbarEl.offsetHeight : 0;
 
 		function updateActiveLink() {
 			let scrollPos = window.scrollY || document.documentElement.scrollTop;
@@ -216,40 +361,56 @@
 		updateActiveLink();
 	};
 
-var smoothScrollWithOffset = function () {
-	const links = document.querySelectorAll('#topNav a[href^="#"], .fullscreen-menu a[href^="#"]');
+	var smoothScrollWithOffset = function () {
+		const links = document.querySelectorAll('#topNav a[href^="#"], .fullscreen-menu a[href^="#"]');
 
-	links.forEach(link => {
-		link.addEventListener('click', function (e) {
-			const targetId = this.getAttribute('href');
-			if (targetId.startsWith('#')) {
-				e.preventDefault();
+		links.forEach(link => {
+			link.addEventListener('click', function (e) {
+				const targetId = this.getAttribute('href');
+				if (targetId.startsWith('#')) {
+					e.preventDefault();
 
-				const targetEl = document.querySelector(targetId);
-				if (targetEl) {
-					const navbar = document.querySelector('#topNav');
-					let navHeight = navbar ? navbar.offsetHeight : 0;
+					const targetEl = document.querySelector(targetId);
+					if (targetEl) {
+						const navbar = document.querySelector('#topNav');
+						let navHeight = navbar ? navbar.offsetHeight : 0;
 
-					// Verifica se siamo su mobile (sotto certa larghezza) o se fullscreen menu è aperto
-					if (window.innerWidth < 768) { // breakpoint mobile
-						navHeight = 0; // nessun offset in mobile
+						// Verifica se siamo su mobile (sotto certa larghezza) o se fullscreen menu è aperto
+						if (window.innerWidth < 768) { // breakpoint mobile
+							navHeight = 0; // nessun offset in mobile
+						}
+
+						const targetPos = targetEl.offsetTop - navHeight;
+						window.scrollTo({
+							top: targetPos,
+							behavior: 'smooth'
+						});
 					}
 
-					const targetPos = targetEl.offsetTop - navHeight;
-					window.scrollTo({
-						top: targetPos,
-						behavior: 'smooth'
-					});
+					// chiudi il menu fullscreen se aperto
+					const fullscreenMenu = document.getElementById('fullscreenMenu');
+					if (fullscreenMenu) fullscreenMenu.classList.remove('active');
 				}
-
-				// chiudi il menu fullscreen se aperto
-				const fullscreenMenu = document.getElementById('fullscreenMenu');
-				if (fullscreenMenu) fullscreenMenu.classList.remove('active');
-			}
+			});
 		});
-	});
-};
+	};
 
+document.addEventListener('DOMContentLoaded', () => {
+    const bootstrapHamburger = document.querySelector('.navbar-toggle');
+    const fullscreenMenu = document.getElementById('fullscreenMenu');
 
+    if (bootstrapHamburger && fullscreenMenu) {
+        bootstrapHamburger.addEventListener('click', function (e) {
+            e.preventDefault();
+            fullscreenMenu.classList.toggle('active');
+        });
+
+        fullscreenMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                fullscreenMenu.classList.remove('active');
+            });
+        });
+    }
+});
 
 }());

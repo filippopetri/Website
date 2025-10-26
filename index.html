@@ -90,12 +90,11 @@
 					<span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
 				</button>
 			</div>
+
 			<!-- Dark Mode Toggle Button -->
 			<button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
 		</div>
 	</nav>
-
-
 
 	<!-- Dark Mode JavaScript -->
 	<script src="js/dark_mode.js"></script>
@@ -392,23 +391,7 @@
 
 		<!-- Main -->
 		<script src="js/main.js"></script>
-		<script>
-			// Hamburger e menu fullscreen
-			const bootstrapHamburger = document.querySelector('.navbar-toggle');
-			const fullscreenMenu = document.getElementById('fullscreenMenu');
 
-			bootstrapHamburger.addEventListener('click', function (e) {
-				e.preventDefault(); // evita il comportamento default Bootstrap
-				fullscreenMenu.classList.toggle('active');
-			});
-
-			// Chiudi menu cliccando un link
-			fullscreenMenu.querySelectorAll('a').forEach(link => {
-				link.addEventListener('click', () => {
-					fullscreenMenu.classList.remove('active');
-				});
-			});
-		</script>
 </body>
 
 </html>
@@ -420,7 +403,7 @@ Template:
 	Template (modified): FREE HTML5 TEMPLATE by FreeHTML5.co - https://freehtml5.co/faq/
 
 Modified content:
-	Copyright (c) 2021 Filippo Petri
+	Copyright (c) 2025 Filippo Petri
 
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal

@@ -18,6 +18,7 @@ body {
   line-height: 1.7;
   color: #4d4d4d;
   background: #fff;
+  overflow-x: hidden
 }
 
 #page {
@@ -1719,6 +1720,18 @@ body.dark-mode .timeline-panel .timeline-title {
   /* Set the color of the heading to white */
 }
 
+.other-projects.full-width {
+    width: 100vw;          /* tutta la larghezza della finestra */
+    overflow: hidden;
+    background-color: #ff9000;
+    padding: 60px 0;       /* altezza verticale */
+    margin-left: calc(-50vw + 50%); /* neutralizza i padding dei container */
+}
+
+#fh5co-project-detail {
+    padding-top: 60px; /* lascia spazio alla navbar */
+}
+
 .navbar {
   border: none;
   margin-bottom: 0;
@@ -1957,4 +1970,169 @@ body.dark-mode .navbar-toggle .bar {
 #darkModeToggle.active {
   opacity: 1;
   pointer-events: auto;
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 700px;
+  margin: 0 auto;
+  transition: height 0.4s ease;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+  position: relative;
+}
+
+.carousel-item {
+  flex: 0 0 100%;
+  height: 100%;
+  text-align: center;
+  aspect-ratio: 16 / 9;
+  /*overflow: visible;*/
+  position: relative;
+}
+
+
+.carousel-item img {
+  /*display: block;*/
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.caption {
+  margin-top: 5px;
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 0px;
+}
+
+body.dark-mode .caption {
+  color: #ccc;
+}
+
+/* Bottoni prev/next */
+.carousel-btn {
+  position: absolute;
+  top: 45%;
+  left: unset;
+  right: unset;
+  transform: translateY(-60%);
+  font-size: 1.8rem;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) { /* breakpoint mobile */
+    .carousel-btn {
+        display: none;
+    }
+}
+
+/* Posizione specifica */
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+/* Hover */
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+/* Indicatori (dot) */
+.carousel-dots {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.carousel-dots .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-dots .dot.active {
+  background: #333;
+}
+
+body.dark-mode .carousel-dots .dot {
+  background: #888;
+}
+
+body.dark-mode .carousel-dots .dot.active {
+  background: #f0f0f0;
+}
+
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8); /* leggermente più chiaro */
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* spazio attorno all'immagine */
+    box-sizing: border-box;
+}
+
+.lightbox-img {
+    max-width: 100%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.lightbox-img.zoomed {
+    transform: scale(1.1); /* leggera ingrandita */
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Per dispositivi mobili */
+@media (max-width: 768px) {
+    .lightbox {
+        padding: 10px;
+    }
+
+    .lightbox .close {
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
+    }
 }
