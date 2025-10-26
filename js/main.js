@@ -168,220 +168,209 @@
 		}
 	});
 
-	var slideShow = function () {
-		const track = document.querySelector('.carousel-track');
-		if (!track) return;
+var slideShow = function () {
+    const track = document.querySelector('.carousel-track');
+    if (!track) return;
 
-		const itemsOriginal = Array.from(track.children);
-		const nextBtn = document.querySelector('.carousel-btn.next');
-		const prevBtn = document.querySelector('.carousel-btn.prev');
-		const dotsContainer = document.querySelector('.carousel-dots');
+    const itemsOriginal = Array.from(track.children);
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const dotsContainer = document.querySelector('.carousel-dots');
 
-		// Clona prima e ultima slide
-		const firstClone = itemsOriginal[0].cloneNode(true);
-		const lastClone = itemsOriginal[itemsOriginal.length - 1].cloneNode(true);
-		track.appendChild(firstClone);
-		track.insertBefore(lastClone, itemsOriginal[0]);
+    // Clona prima e ultima slide
+    const firstClone = itemsOriginal[0].cloneNode(true);
+    const lastClone = itemsOriginal[itemsOriginal.length - 1].cloneNode(true);
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, itemsOriginal[0]);
 
-		const items = Array.from(track.children);
-		let currentIndex = 1;
-		let isMoving = false;
-		const slideStyle = window.getComputedStyle(items[0]);
-		const slideMarginRight = parseInt(slideStyle.marginRight) || 0;
-		const slideWidth = items[0].getBoundingClientRect().width + slideMarginRight;
+    const items = Array.from(track.children);
+    let currentIndex = 1;
+    let isMoving = false;
+    const slideStyle = window.getComputedStyle(items[0]);
+    const slideMarginRight = parseInt(slideStyle.marginRight) || 0;
+    const slideWidth = items[0].getBoundingClientRect().width + slideMarginRight;
 
-		// Posizione iniziale
-		track.style.transition = 'none';
-		track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-		track.offsetHeight;
-		track.style.transition = 'transform 0.6s ease';
+    // Posizione iniziale
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+    requestAnimationFrame(() => {
+        track.style.transition = 'transform 0.6s ease';
+    });
 
-		// Dots
-		itemsOriginal.forEach((_, i) => {
-			const dot = document.createElement('span');
-			dot.classList.add('dot');
-			if (i === 0) dot.classList.add('active');
-			dot.addEventListener('click', () => goToSlide(i + 1));
-			dotsContainer.appendChild(dot);
-		});
-		const dots = Array.from(dotsContainer.children);
+    // Dots
+    itemsOriginal.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i + 1));
+        dotsContainer.appendChild(dot);
+    });
+    const dots = Array.from(dotsContainer.children);
 
-		function goToSlide(index) {
-			if (isMoving) return;
-			isMoving = true;
-			track.style.transition = 'transform 0.6s ease';
-			currentIndex = index;
-			track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-			updateDots();
-		}
+    function goToSlide(index) {
+        if (isMoving) return;
+        isMoving = true;
+        track.style.transition = 'transform 0.6s ease';
+        currentIndex = index;
+        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+        updateDots();
+    }
 
-		function updateDots() {
-			let dotIndex = currentIndex - 1;
-			if (currentIndex === 0) dotIndex = dots.length - 1;
-			else if (currentIndex === items.length - 1) dotIndex = 0;
-			dots.forEach((dot, i) => dot.classList.toggle('active', i === dotIndex));
-		}
+    function updateDots() {
+        let dotIndex = currentIndex - 1;
+        if (currentIndex === 0) dotIndex = dots.length - 1;
+        else if (currentIndex === items.length - 1) dotIndex = 0;
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === dotIndex));
+    }
 
-		nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-		prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
 
-		// Swipe
-		let startX = 0;
-		let isDragging = false;
+    // Swipe
+    let startX = 0;
+    let isDragging = false;
 
-		track.addEventListener('touchstart', e => {
-			if (isMoving) return;
-			startX = e.touches[0].clientX;
-			isDragging = true;
-			track.style.transition = 'none';
-		});
+    track.addEventListener('touchstart', e => {
+        if (isMoving) return;
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        track.style.transition = 'none';
+    });
 
-		track.addEventListener('touchmove', e => {
-			if (!isDragging) return;
-			const currentX = e.touches[0].clientX;
-			const moveX = currentX - startX;
-			track.style.transform = `translateX(${-currentIndex * slideWidth + moveX}px)`;
-		});
+    track.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        e.preventDefault(); // evita lo scroll della pagina
+        const currentX = e.touches[0].clientX;
+        const moveX = currentX - startX;
+        track.style.transform = `translateX(${-currentIndex * slideWidth + moveX}px)`;
+    }, { passive: false });
 
-		track.addEventListener('touchend', e => {
-			if (!isDragging) return;
-			isDragging = false;
-			const endX = e.changedTouches[0].clientX;
-			const diff = endX - startX;
-			const threshold = 50;
-			track.style.transition = 'transform 0.6s ease';
+    track.addEventListener('touchend', e => {
+        if (!isDragging) return;
+        isDragging = false;
+        const endX = e.changedTouches[0].clientX;
+        const diff = endX - startX;
+        const threshold = 50;
+        track.style.transition = 'transform 0.6s ease';
+        if (diff < -threshold) goToSlide(currentIndex + 1);
+        else if (diff > threshold) goToSlide(currentIndex - 1);
+        else goToSlide(currentIndex);
+    });
 
-			if (diff < -threshold) goToSlide(currentIndex + 1);
-			else if (diff > threshold) goToSlide(currentIndex - 1);
-			else goToSlide(currentIndex);
-		});
+    // Loop infinito
+    track.addEventListener('transitionend', () => {
+        if (currentIndex === 0) {
+            track.style.transition = 'none';
+            currentIndex = itemsOriginal.length;
+            requestAnimationFrame(() => {
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+            });
+        } else if (currentIndex === items.length - 1) {
+            track.style.transition = 'none';
+            currentIndex = 1;
+            requestAnimationFrame(() => {
+                track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+            });
+        }
+        isMoving = false;
+    });
 
-		// Loop infinito
-		track.addEventListener('transitionend', () => {
-			if (currentIndex === 0) {
-				track.style.transition = 'none';
-				currentIndex = itemsOriginal.length;
-				track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-			} else if (currentIndex === items.length - 1) {
-				track.style.transition = 'none';
-				currentIndex = 1;
-				track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-			}
-			isMoving = false;
-		});
+    // Funzione per resettare carousel
+    function resetCarousel() {
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+        requestAnimationFrame(() => {
+            track.style.transition = 'transform 0.6s ease';
+            isMoving = false;
+        });
+    }
 
-		// Funzione per resettare carousel
-		function resetCarousel() {
-			track.style.transition = 'none';
-			track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-			track.offsetHeight;
-			track.style.transition = 'transform 0.6s ease';
-			isMoving = false;
-		}
+    // ---------------- Lightbox navigabile ----------------
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const closeBtn = document.querySelector('.lightbox .close');
 
-		// ---------------- Lightbox navigabile ----------------
-		// ---------------- Lightbox navigabile ----------------
-		const lightbox = document.getElementById('lightbox');
-		const lightboxImg = document.querySelector('.lightbox-img');
-		const closeBtn = document.querySelector('.lightbox .close');
+    if (lightbox && lightboxImg && closeBtn) {
+        let currentLightboxIndex = 0;
+        const carouselImages = Array.from(document.querySelectorAll('.carousel-img'));
 
-		if (lightbox && lightboxImg && closeBtn) {
-			let currentLightboxIndex = 0;
-			const carouselImages = Array.from(document.querySelectorAll('.carousel-img'));
+        function updateLightboxImage(index) {
+            lightboxImg.classList.add('fade-out');
+            setTimeout(() => {
+                lightboxImg.src = carouselImages[index].src;
+                lightboxImg.classList.remove('zoomed', 'fade-out');
+                lightboxImg.classList.add('fade-in');
+                setTimeout(() => lightboxImg.classList.remove('fade-in'), 300);
+            }, 150);
+        }
 
-			function updateLightboxImage(index) {
-				lightboxImg.classList.add('fade-out');
-				setTimeout(() => {
-					lightboxImg.src = carouselImages[index].src;
-					lightboxImg.classList.remove('zoomed');
-					lightboxImg.classList.remove('fade-out');
-					lightboxImg.classList.add('fade-in');
-					setTimeout(() => lightboxImg.classList.remove('fade-in'), 300);
-				}, 150);
-			}
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            lightbox.style.display = 'flex';
+            lightboxImg.src = carouselImages[currentLightboxIndex].src;
+            lightboxImg.classList.remove('zoomed');
+            document.body.style.overflow = 'hidden';
+        }
 
-			function openLightbox(index) {
-				currentLightboxIndex = index;
-				lightbox.style.display = 'flex';
-				lightboxImg.src = carouselImages[currentLightboxIndex].src;
-				lightboxImg.classList.remove('zoomed');
-				document.body.style.overflow = 'hidden';
-			}
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+            currentIndex = currentLightboxIndex;
+            track.style.transition = 'none';
+            track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
+            requestAnimationFrame(() => {
+                track.style.transition = 'transform 0.6s ease';
+            });
+            isMoving = false;
+            isDragging = false;
+            updateDots();
+        }
 
-			function closeLightbox() {
-				// chiudi il lightbox
-				lightbox.style.display = 'none';
-				// riattiva lo scroll della pagina (se usavi overflow hidden)
-				document.body.style.overflow = '';
+        function showNextImage() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % carouselImages.length;
+            updateLightboxImage(currentLightboxIndex);
+        }
 
-				// Aggiorna il carousel alla slide mostrata nel lightbox
-				// currentLightboxIndex è 0-based (0..N-1), mentre currentIndex nel carousel è 1-based (per via del clone)
-				currentIndex = currentLightboxIndex;
+        function showPrevImage() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + carouselImages.length) % carouselImages.length;
+            updateLightboxImage(currentLightboxIndex);
+        }
 
-				// Disattiva transizione, posiziona correttamente, forza reflow e riattiva transizione
-				track.style.transition = 'none';
-				track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
-				// forza reflow in modo che il browser applichi immediatamente la trasformazione
-				void track.offsetHeight;
-				// riattiva transizione per movimenti successivi
-				track.style.transition = 'transform 0.6s ease';
+        carouselImages.forEach((img, i) => {
+            img.addEventListener('click', () => openLightbox(i));
+        });
 
-				// Assicura che lo stato di movimento/dragging sia resettato
-				isMoving = false;
-				isDragging = false;
+        closeBtn.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) closeLightbox();
+        });
 
-				// Aggiorna i dots (se li hai)
-				updateDots();
-			}
+        document.addEventListener('keydown', e => {
+            if (lightbox.style.display !== 'flex') return;
+            if (e.key === 'ArrowRight') showNextImage();
+            else if (e.key === 'ArrowLeft') showPrevImage();
+            else if (e.key === 'Escape') closeLightbox();
+        });
 
+        // Swipe mobile
+        let lbStartX = 0;
+        lightboxImg.addEventListener('touchstart', e => {
+            lbStartX = e.touches[0].clientX;
+        });
+        lightboxImg.addEventListener('touchend', e => {
+            const diff = e.changedTouches[0].clientX - lbStartX;
+            const threshold = 50;
+            if (diff < -threshold) showNextImage();
+            else if (diff > threshold) showPrevImage();
+        });
 
-			function showNextImage() {
-				currentLightboxIndex = (currentLightboxIndex + 1) % carouselImages.length;
-				updateLightboxImage(currentLightboxIndex);
-			}
+        // Zoom toggle
+        lightboxImg.addEventListener('click', () => {
+            lightboxImg.classList.toggle('zoomed');
+        });
+    }
+};
 
-			function showPrevImage() {
-				currentLightboxIndex = (currentLightboxIndex - 1 + carouselImages.length) % carouselImages.length;
-				updateLightboxImage(currentLightboxIndex);
-			}
-
-			// Clic sulle immagini del carousel
-			carouselImages.forEach((img, i) => {
-				img.addEventListener('click', () => openLightbox(i));
-			});
-
-			// Chiudi con X o clic fuori
-			closeBtn.addEventListener('click', closeLightbox);
-			lightbox.addEventListener('click', e => {
-				if (e.target === lightbox) closeLightbox();
-			});
-
-			// Navigazione da tastiera
-			document.addEventListener('keydown', e => {
-				if (lightbox.style.display !== 'flex') return;
-				if (e.key === 'ArrowRight') showNextImage();
-				else if (e.key === 'ArrowLeft') showPrevImage();
-				else if (e.key === 'Escape') closeLightbox();
-			});
-
-			// Swipe mobile
-			let startX = 0;
-			lightboxImg.addEventListener('touchstart', e => {
-				startX = e.touches[0].clientX;
-			});
-			lightboxImg.addEventListener('touchend', e => {
-				const diff = e.changedTouches[0].clientX - startX;
-				const threshold = 50;
-				if (diff < -threshold) showNextImage();
-				else if (diff > threshold) showPrevImage();
-			});
-
-			// Zoom toggle
-			lightboxImg.addEventListener('click', () => {
-				lightboxImg.classList.toggle('zoomed');
-			});
-		}
-	};
 
 	// Top Nav scroll highlight
 	var topNavHighlight = function () {
