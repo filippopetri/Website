@@ -172,6 +172,9 @@ var slideShow = function () {
 	const track = document.querySelector('.carousel-track');
 	if (!track) return;
 
+	const wrapper = document.querySelector('.carousel-wrapper');
+	if (!wrapper) return;
+
 	const itemsOriginal = Array.from(track.children);
 	const nextBtn = document.querySelector('.carousel-btn.next');
 	const prevBtn = document.querySelector('.carousel-btn.prev');
@@ -188,9 +191,15 @@ var slideShow = function () {
 	let isMoving = false;
 	let slideWidth = 0;
 
-	// Forza Safari a calcolare altezza reale al load
-	window.addEventListener('load', () => {
-		items.forEach(item => void item.offsetHeight);
+	// Forza Safari a registrare touch: setta altezza reale del wrapper
+	function setWrapperHeight() {
+		if (!items.length) return;
+		const rect = items[0].getBoundingClientRect();
+		wrapper.style.height = `${rect.height}px`;
+	}
+	window.addEventListener('load', setWrapperHeight);
+	window.addEventListener('resize', () => {
+		setWrapperHeight();
 		updateSlideWidth();
 	});
 
@@ -207,7 +216,10 @@ var slideShow = function () {
 	}
 
 	// Chiamata iniziale
-	requestAnimationFrame(updateSlideWidth);
+	requestAnimationFrame(() => {
+		setWrapperHeight();
+		updateSlideWidth();
+	});
 
 	// Dots
 	if (dotsContainer) {
@@ -287,11 +299,6 @@ var slideShow = function () {
 			});
 		}
 		isMoving = false;
-	});
-
-	// Aggiorna slideWidth al resize/orientamento
-	window.addEventListener('resize', () => {
-		updateSlideWidth();
 	});
 
 	// ---------------- Lightbox ----------------
@@ -375,8 +382,6 @@ var slideShow = function () {
 		lightboxImg.addEventListener('click', () => lightboxImg.classList.toggle('zoomed'));
 	}
 };
-
-
 
 	// Top Nav scroll highlight
 	var topNavHighlight = function () {
