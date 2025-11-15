@@ -1560,7 +1560,6 @@ input[type="text"] {
 /* Add smooth scroll */
 html {
   scroll-behavior: smooth;
-  background-color: #fff; /* per light mode */
   transition: background-color 0.5s ease; /* per transizione morbida se cambia modalità */
 }
 
