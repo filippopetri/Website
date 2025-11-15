@@ -34,7 +34,6 @@
 		}
 	};
 
-	// Parallax
 	var parallax = function () {
 		$(window).stellar();
 	};
@@ -75,8 +74,6 @@
 		}, { offset: '85%' });
 	};
 
-
-
 	var goToTop = function () {
 
 		$('.js-gotop').on('click', function (event) {
@@ -103,7 +100,6 @@
 
 	};
 
-	// Loading page
 	var loaderPage = function () {
 		$(".fh5co-loader").fadeOut("slow");
 	};
@@ -111,41 +107,33 @@
 	var darkModeButton = function () {
 		const $btn = $('#darkModeToggle');
 
-		if (!$btn.length) return; // evita errori se il pulsante non esiste ancora
+		if (!$btn.length) return;
 
-		// Mostra/nascondi in base allo scroll
+
 		$(window).on('scroll', function () {
 			if ($(window).scrollTop() < 1000) {
-				$btn.addClass('active'); // mostra
+				$btn.addClass('active');
 			} else {
-				$btn.removeClass('active'); // nascondi
+				$btn.removeClass('active');
 			}
 		});
 
-		// Controllo iniziale
 		if ($(window).scrollTop() < 1000) {
 			$btn.addClass('active');
 		}
 
-		// Click rimane collegato al tuo onclick HTML
-		// Non aggiungere qui toggleDarkMode(), altrimenti lo IIFE non lo trova
 	};
 
-	// Padding dinamico per il main rispetto alla navbar
 	var adjustMainPadding = function () {
-		var navbar = document.getElementById('topNav'); // usa l'ID corretto
+		var navbar = document.getElementById('topNav');
 		var main = document.querySelector('main');
-		if (navbar && main) { // controllo esistenza
+		if (navbar && main) {
 			main.style.paddingTop = navbar.offsetHeight + 'px';
 		}
 	};
 
-
-	// Esegui al caricamento e al resize
 	window.addEventListener('load', adjustMainPadding);
 	window.addEventListener('resize', adjustMainPadding);
-
-
 
 	$(function () {
 		contentWayPoint();
@@ -164,7 +152,7 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		const yearElement = document.getElementById('year');
 		if (yearElement) {
-			yearElement.textContent = new Date().getFullYear(); // Inserisce l'anno corrente
+			yearElement.textContent = new Date().getFullYear();
 		}
 	});
 
@@ -180,7 +168,6 @@ var slideShow = function () {
 	const prevBtn = document.querySelector('.carousel-btn.prev');
 	const dotsContainer = document.querySelector('.carousel-dots');
 
-	// Clona prima e ultima slide per loop infinito
 	const firstClone = itemsOriginal[0].cloneNode(true);
 	const lastClone = itemsOriginal[itemsOriginal.length - 1].cloneNode(true);
 	track.appendChild(firstClone);
@@ -191,7 +178,6 @@ var slideShow = function () {
 	let isMoving = false;
 	let slideWidth = 0;
 
-	// Forza Safari a registrare touch: setta altezza reale del wrapper
 	function setWrapperHeight() {
 		if (!items.length) return;
 		const rect = items[0].getBoundingClientRect();
@@ -203,7 +189,6 @@ var slideShow = function () {
 		updateSlideWidth();
 	});
 
-	// Funzione per calcolare larghezza slide
 	function updateSlideWidth() {
 		const slideStyle = window.getComputedStyle(items[0]);
 		const marginRight = parseInt(slideStyle.marginRight) || 0;
@@ -215,13 +200,11 @@ var slideShow = function () {
 		});
 	}
 
-	// Chiamata iniziale
 	requestAnimationFrame(() => {
 		setWrapperHeight();
 		updateSlideWidth();
 	});
 
-	// Dots
 	if (dotsContainer) {
 		itemsOriginal.forEach((_, i) => {
 			const dot = document.createElement('span');
@@ -250,11 +233,9 @@ var slideShow = function () {
 		updateDots();
 	}
 
-	// Pulsanti next/prev
 	if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
 	if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
 
-	// Swipe touch
 	let startX = 0;
 	let isDragging = false;
 
@@ -267,7 +248,7 @@ var slideShow = function () {
 
 	track.addEventListener('touchmove', e => {
 		if (!isDragging) return;
-		e.preventDefault(); // necessario per Safari
+		e.preventDefault();
 		const moveX = e.touches[0].clientX - startX;
 		track.style.transform = `translateX(${-currentIndex * slideWidth + moveX}px)`;
 	}, { passive: false });
@@ -283,7 +264,6 @@ var slideShow = function () {
 		else goToSlide(currentIndex);
 	});
 
-	// Loop infinito
 	track.addEventListener('transitionend', () => {
 		if (currentIndex === 0) {
 			track.style.transition = 'none';
@@ -301,7 +281,6 @@ var slideShow = function () {
 		isMoving = false;
 	});
 
-	// ---------------- Lightbox ----------------
 	const lightbox = document.getElementById('lightbox');
 	const lightboxImg = document.querySelector('.lightbox-img');
 	const closeBtn = document.querySelector('.lightbox .close');
@@ -368,7 +347,6 @@ var slideShow = function () {
 			else if (e.key === 'Escape') closeLightbox();
 		});
 
-		// Swipe mobile lightbox
 		let lbStartX = 0;
 		lightboxImg.addEventListener('touchstart', e => lbStartX = e.touches[0].clientX);
 		lightboxImg.addEventListener('touchend', e => {
@@ -377,13 +355,9 @@ var slideShow = function () {
 			if (diff < -threshold) showNextImage();
 			else if (diff > threshold) showPrevImage();
 		});
-
-		// Zoom toggle
-		lightboxImg.addEventListener('click', () => lightboxImg.classList.toggle('zoomed'));
 	}
 };
 
-	// Top Nav scroll highlight
 	var topNavHighlight = function () {
 		const links = document.querySelectorAll('#topNav a');
 
@@ -399,7 +373,7 @@ var slideShow = function () {
 		function updateActiveLink() {
 			let scrollPos = window.scrollY || document.documentElement.scrollTop;
 
-			let activeFound = false; // evita che più link siano attivi
+			let activeFound = false;
 			sections.forEach(section => {
 				if (!section.el) return;
 				let top = section.el.offsetTop - navHeight;
@@ -413,7 +387,6 @@ var slideShow = function () {
 				}
 			});
 
-			// se siamo in cima alla pagina, evidenzia la prima sezione (Home)
 			if (scrollPos < 10) {
 				links.forEach(l => l.classList.remove('active'));
 				if (links[0]) links[0].classList.add('active');
@@ -422,14 +395,12 @@ var slideShow = function () {
 
 		window.addEventListener('scroll', updateActiveLink);
 
-		// aggiorna subito dopo il click su un link
 		links.forEach(link => {
 			link.addEventListener('click', () => {
-				setTimeout(updateActiveLink, 100); // lascia scorrere l'animazione
+				setTimeout(updateActiveLink, 100);
 			});
 		});
 
-		// update iniziale
 		updateActiveLink();
 	};
 
@@ -447,9 +418,8 @@ var slideShow = function () {
 						const navbar = document.querySelector('#topNav');
 						let navHeight = navbar ? navbar.offsetHeight : 0;
 
-						// Verifica se siamo su mobile (sotto certa larghezza) o se fullscreen menu è aperto
-						if (window.innerWidth < 768) { // breakpoint mobile
-							navHeight = 0; // nessun offset in mobile
+						if (window.innerWidth < 768) {
+							navHeight = 0;
 						}
 
 						const targetPos = targetEl.offsetTop - navHeight;
@@ -459,7 +429,6 @@ var slideShow = function () {
 						});
 					}
 
-					// chiudi il menu fullscreen se aperto
 					const fullscreenMenu = document.getElementById('fullscreenMenu');
 					if (fullscreenMenu) fullscreenMenu.classList.remove('active');
 				}
