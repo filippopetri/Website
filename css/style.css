@@ -12,6 +12,19 @@
 *
 * ======================================================= */
 
+:root {
+    --bg-body: #ffffff;
+    --bg-loader: #fff;
+    --navbar-bg: rgba(255,255,255,0.95);
+}
+.dark-mode {
+    --bg-body: #2e2e2e;
+    --bg-loader: #2e2e2e;
+    --navbar-bg: rgba(34,34,34,0.95);
+}
+body { background: var(--bg-body); }
+.fh5co-loader { background: var(--bg-loader) !important; }
+#topNav { background: var(--navbar-bg) !important; }
 
 body {
   font-family: "Space Mono", Arial, serif;
