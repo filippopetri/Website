@@ -6,6 +6,12 @@
   font-style: normal;
 }
 
+/* =======================================================
+*
+* 	Template Style 
+*
+* ======================================================= */
+
 :root {
     --bg-body: #ffffff;
     --bg-loader: #fff;
@@ -20,11 +26,6 @@ body { background: var(--bg-body); }
 .fh5co-loader { background: var(--bg-loader) !important; }
 #topNav { background: var(--navbar-bg) !important; }
 
-/* =======================================================
-*
-* 	Template Style 
-*
-* ======================================================= */
 body {
   font-family: "Space Mono", Arial, serif;
   font-weight: 400;
