@@ -13,12 +13,19 @@
 		(function () {
 			document.body.style.visibility = 'hidden';
 
+			// ✅ Loader aspetta dark_mode.js + fonts
 			window.addEventListener('load', () => {
 				document.fonts.ready.then(() => {
-					setTimeout(() => {
-						$(".fh5co-loader").fadeOut(150);
-						document.body.style.visibility = 'visible';
-					}, 50);
+					// ✅ Aspetta theme-ready da dark_mode.js
+					const checkThemeReady = setInterval(() => {
+						if (document.body.classList.contains('theme-ready')) {
+							clearInterval(checkThemeReady);
+							setTimeout(() => {
+								$(".fh5co-loader").fadeOut(150);
+								document.body.style.visibility = 'visible';
+							}, 50);
+						}
+					}, 10);
 				});
 			});
 		})();
