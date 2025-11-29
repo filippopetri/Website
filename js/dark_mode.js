@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const loader = document.querySelector('.fh5co-loader');
     const darkModeButton = document.getElementById('darkModeToggle');
     let darkModeStatus = localStorage.getItem('darkMode');
@@ -17,8 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (loader) loader.style.backgroundColor = '#fff';
         if (darkModeButton) darkModeButton.innerHTML = '🌙';
     }
-
-    document.body.classList.add('theme-ready');
 });
 
 function toggleDarkMode() {

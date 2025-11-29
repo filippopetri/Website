@@ -6,6 +6,20 @@
   font-style: normal;
 }
 
+:root {
+    --bg-body: #ffffff;
+    --bg-loader: #fff;
+    --navbar-bg: rgba(255,255,255,0.95);
+}
+.dark-mode {
+    --bg-body: #2e2e2e;
+    --bg-loader: #2e2e2e;
+    --navbar-bg: rgba(34,34,34,0.95);
+}
+body { background: var(--bg-body); }
+.fh5co-loader { background: var(--bg-loader) !important; }
+#topNav { background: var(--navbar-bg) !important; }
+
 /* =======================================================
 *
 * 	Template Style 
@@ -16,7 +30,6 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 1.7;
-  color: #4d4d4d;
 }
 
 #page {
@@ -1707,7 +1720,6 @@ html {
   padding: 60px 15px;
   overflow: hidden;
 }
-
 
 #fh5co-project-detail {
   padding-top: 60px;

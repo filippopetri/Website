@@ -13,27 +13,38 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono|Kaushan+Script&display=swap" rel="stylesheet">
 
-	<script>
-		(function () {
-			document.body.style.visibility = 'hidden';
+<script>
+(function() {
+    // ✅ DARK MODE DAL PRIMO PIXEL (esattamente come dark_mode.js)
+    const darkModeStatus = localStorage.getItem('darkMode');
+    const isDark = darkModeStatus === 'enabled' || darkModeStatus === null;
+    
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+    }
+    
+    // ✅ Sblocca loader IMMediATAMENTE
+    document.body.classList.add('theme-ready');
+    
+    // Nascondi fino a fonts+loader
+    document.body.style.visibility = 'hidden';
+    
+    // ✅ Loader/Normalizza ESATTAMENTE come il tuo CSS/JS
+    const style = document.createElement('style');
+    style.textContent = `
+        html { color-scheme: dark light; }
+        .fh5co-loader { 
+            background: ${isDark ? '#2e2e2e' : '#fff'} !important; 
+            position: fixed !important; top:0 !important; left:0 !important; 
+            width:100% !important; height:100% !important; z-index:9999 !important; 
+        }
+        body { background: ${isDark ? '#2e2e2e' : '#ffffff'}; }
+        #topNav { background: ${isDark ? 'rgba(34,34,34,0.95)' : 'rgba(255,255,255,0.95)'} !important; }
+    `;
+    document.head.appendChild(style);
+})();
+</script>
 
-			// ✅ Loader aspetta dark_mode.js + fonts
-			window.addEventListener('load', () => {
-				document.fonts.ready.then(() => {
-					// ✅ Aspetta theme-ready da dark_mode.js
-					const checkThemeReady = setInterval(() => {
-						if (document.body.classList.contains('theme-ready')) {
-							clearInterval(checkThemeReady);
-							setTimeout(() => {
-								$(".fh5co-loader").fadeOut(150);
-								document.body.style.visibility = 'visible';
-							}, 50);
-						}
-					}, 10);
-				});
-			});
-		})();
-	</script>
 
 	<title>Filippo Petri | Home</title>
 
