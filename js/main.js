@@ -5,7 +5,7 @@
 	var parallax = function () {
 		if (window.innerWidth >= 992) {
 			$(window).stellar({
-				responsive: true
+				responsive: false
 			});
 		}
 	};
@@ -203,7 +203,7 @@
 			startX = e.touches[0].clientX;
 			isDragging = true;
 			track.style.transition = 'none';
-		}, { passive: false });
+		}, { passive: true });
 
 		track.addEventListener('touchmove', e => {
 			if (!isDragging) return;

@@ -46,3 +46,5 @@ function toggleDarkMode() {
         console.error("localStorage error:", e);
     }
 }
+
+window.darkModeReady && window.darkModeReady();

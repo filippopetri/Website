@@ -1557,28 +1557,24 @@ input[type="text"] {
   border-bottom: 2px solid #ffa500;
 }
 
-/* Add smooth scroll */
 html {
   scroll-behavior: smooth;
-  transition: background-color 0.5s ease; /* per transizione morbida se cambia modalità */
+  transition: background-color 0.5s ease;
 }
 
 .dark-mode {
   background-color: #2e2e2e;
-  /* Dark gray background */
   color: #ffffff;
 }
 
 .dark-mode header#fh5co-header {
   background-color: #444444;
-  /* Dark gray for header */
 }
 
 .dark-mode .fh5co-social-icons a {
   color: #ffffff;
 }
 
-/* Make sure headings and titles stand out */
 .dark-mode h1 {
   color: #ffffff;
 }

@@ -9,13 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Space+Mono|Kaushan+Script&display=swap" rel="stylesheet">
 
-    <script>
-        window.addEventListener('load', () => {
-            document.fonts.ready.then(() => {
-                setTimeout(() => $(".fh5co-loader").fadeOut(150), 50);
-            });
-        });
-    </script>
+	<script>
+		(function () {
+			document.body.style.visibility = 'hidden';
+
+			window.addEventListener('load', () => {
+				document.fonts.ready.then(() => {
+					setTimeout(() => {
+						$(".fh5co-loader").fadeOut(150);
+						document.body.style.visibility = 'visible';
+					}, 50);
+				});
+			});
+		})();
+	</script>
     
     <title>Filippo Petri | Smart Thermostat</title>
 
