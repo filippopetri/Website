@@ -5,16 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono|Kaushan+Script&display=swap" rel="stylesheet">
+
+    <script>
+        window.addEventListener('load', () => {
+            document.fonts.ready.then(() => {
+                setTimeout(() => $(".fh5co-loader").fadeOut(150), 50);
+            });
+        });
+    </script>
+
     <title>Filippo Petri | TNA</title>
 
     <meta name="author" content="&copy; Filippo Petri" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/icon.png" />
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -64,8 +72,7 @@
 
             <!-- Hamburger piccolo a sinistra -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#navbar-collapse" aria-expanded="false">
+                <button type="button" class="navbar-toggle" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <!-- Hamburger piccolo -->
                     <span style="display:block;width:25px;height:3px;margin:4px 0;" class="bar"></span>
@@ -82,11 +89,11 @@
     <!-- Dark Mode JavaScript -->
     <script src="js/dark_mode.js"></script>
 
-	<div class="fh5co-loader">
-		<svg class="svg-loader" width="64" height="64" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
-			<circle class="loader-path" cx="22" cy="22" r="20" fill="none" stroke="#FFA500" stroke-width="4"></circle>
-		</svg>
-	</div>
+    <div class="fh5co-loader">
+        <svg class="svg-loader" width="64" height="64" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+            <circle class="loader-path" cx="22" cy="22" r="20" fill="none" stroke="#FFA500" stroke-width="4"></circle>
+        </svg>
+    </div>
 
     <!-- Project Detail Section -->
     <div id="fh5co-project-detail" class="container top-space">
@@ -298,9 +305,6 @@
 
     <!-- Main -->
     <script src="js/main.js"></script>
-
-    <!-- Dark Mode JavaScript -->
-    <script src="js/dark_mode.js"></script>
 
 </body>
 

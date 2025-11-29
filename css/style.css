@@ -2023,10 +2023,10 @@ body:not(.dark-mode) .fullscreen-menu a {
 /* Bottoni prev/next */
 .carousel-btn {
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: unset;
   right: unset;
-  transform: translateY(-60%);
+  transform: translateY(-50%);
   font-size: 1.8rem;
   background: rgba(0, 0, 0, 0.3);
   color: #fff;

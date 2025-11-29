@@ -8,7 +8,21 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono|Kaushan+Script&display=swap" rel="stylesheet">
+
+    <script>
+        window.addEventListener('load', () => {
+            document.fonts.ready.then(() => {
+                setTimeout(() => $(".fh5co-loader").fadeOut(150), 50);
+            });
+        });
+    </script>
+
 	<title>Filippo Petri | Home</title>
+	
 	<meta name="author" content="&copy; Filippo Petri - Theme (modified): freehtml5.co" />
 	<meta name="description"
 		content="Filippo Petri – Italian Electronic Engineer, Maker Production Engineer. Portfolio, projects and resume.">
@@ -33,10 +47,6 @@
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="images/icon.png" />
-
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
 
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
