@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-
+    document.body.classList.add('theme-ready');
+    
     const loader = document.querySelector('.fh5co-loader');
     const darkModeButton = document.getElementById('darkModeToggle');
     let darkModeStatus = localStorage.getItem('darkMode');
