@@ -17,7 +17,6 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: #4d4d4d;
-
 }
 
 #page {
@@ -1508,8 +1507,9 @@ input[type="text"] {
   align-items: center;
 }
 
+/* Dark mode */
 .dark-mode .fh5co-loader {
-  background-color: #2e2e2e !important; /* sfondo scuro */
+  background-color: #2e2e2e;
 }
 
 .js .animate-box {
@@ -1563,37 +1563,29 @@ html {
   transition: background-color 0.5s ease; /* per transizione morbida se cambia modalità */
 }
 
-body.dark-mode html {
-  background-color: #2e2e2e;
-}
-
-.dark-mode .fh5co-loader {
-  background-color: #2e2e2e !important;
-}
-
-body.dark-mode {
+.dark-mode {
   background-color: #2e2e2e;
   /* Dark gray background */
   color: #ffffff;
 }
 
-body.dark-mode header#fh5co-header {
+.dark-mode header#fh5co-header {
   background-color: #444444;
   /* Dark gray for header */
 }
 
-body.dark-mode .fh5co-social-icons a {
+.dark-mode .fh5co-social-icons a {
   color: #ffffff;
 }
 
 /* Make sure headings and titles stand out */
-body.dark-mode h1 {
+.dark-mode h1 {
   color: #ffffff;
 }
 
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h6 {
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h6 {
   color: #ffffff;
 }
 
@@ -1618,26 +1610,20 @@ body.dark-mode h6 {
   z-index: 1000;
 }
 
-body.dark-mode .dark-mode-toggle {
+.dark-mode .dark-mode-toggle {
   background-color: #fff;
   color: #333;
 }
 
 /* Ensure light mode has no gray backgrounds */
-body .timeline-panel {
+ .timeline-panel {
   background-color: transparent !important;
   color: inherit;
 }
 
-/* Mantieni il colore originale dei titoli principali in modalità scura */
-body.dark-mode .timeline-heading h3,
-body.dark-mode .timeline-panel .timeline-title {
-  color: #333333 !important;
-}
-
 /* Cambia il colore dei titoli secondari (come Junior Production Engineer) in bianco in modalità scura */
-body.dark-mode .timeline-heading h3+ul li a,
-body.dark-mode .timeline-panel .timeline-title {
+.dark-mode .timeline-heading h3+ul li a,
+.dark-mode .timeline-panel .timeline-title {
   color: #fff !important;
 }
 
@@ -1768,7 +1754,7 @@ body.dark-mode .timeline-panel .timeline-title {
     /* Light mode di default */
   }
 
-  body.dark-mode .fullscreen-menu {
+  .dark-mode .fullscreen-menu {
     background-color: #222;
     /* Dark mode */
   }
@@ -1791,7 +1777,7 @@ body.dark-mode .timeline-panel .timeline-title {
     background-color: #fff;
   }
 
-  body.dark-mode #topNav .navbar-toggle {
+  .dark-mode #topNav .navbar-toggle {
     background-color: #333;
     border-color: #fff;
   }
@@ -1801,7 +1787,7 @@ body.dark-mode .timeline-panel .timeline-title {
     background-color: #333;
   }
 
-  body.dark-mode #topNav .navbar-toggle .icon-bar {
+  .dark-mode #topNav .navbar-toggle .icon-bar {
     background-color: #fff;
   }
 
@@ -1828,7 +1814,7 @@ body.dark-mode .timeline-panel .timeline-title {
     transition: color 0.2s;
   }
 
-  body.dark-mode #topNav ul.nav li a {
+  .dark-mode #topNav ul.nav li a {
     color: #fff;
     /* Dark mode */
   }
@@ -1867,7 +1853,7 @@ body:not(.dark-mode) .fullscreen-menu a {
 }
 
 /* Fullscreen menu link - Dark Mode */
-body.dark-mode .fullscreen-menu a {
+.dark-mode .fullscreen-menu a {
   display: block;
   color: #fff;
   /* bianco in dark mode */
@@ -1898,7 +1884,7 @@ body.dark-mode .fullscreen-menu a {
 }
 
 /* Dark mode */
-body.dark-mode .navbar-toggle .bar {
+.dark-mode .navbar-toggle .bar {
   background-color: #fff;
   /* visibili in dark mode */
 }
@@ -1923,7 +1909,7 @@ body.dark-mode .navbar-toggle .bar {
 
 /* Navbar desktop - Dark mode */
 @media (min-width: 768px) {
-  body.dark-mode #topNav.navbar {
+  .dark-mode #topNav.navbar {
     background-color: #222;
     /* scura */
     color: #fff;
@@ -1937,7 +1923,7 @@ body.dark-mode .navbar-toggle .bar {
     color: #000;
   }
 
-  body.dark-mode #topNav .nav>li>a {
+  .dark-mode #topNav .nav>li>a {
     color: #fff;
   }
 }
@@ -2030,7 +2016,7 @@ body.dark-mode .navbar-toggle .bar {
   margin-bottom: 0px;
 }
 
-body.dark-mode .caption {
+.dark-mode .caption {
   color: #ccc;
 }
 
@@ -2099,11 +2085,11 @@ body.dark-mode .caption {
   background: #333;
 }
 
-body.dark-mode .carousel-dots .dot {
+.dark-mode .carousel-dots .dot {
   background: #888;
 }
 
-body.dark-mode .carousel-dots .dot.active {
+.dark-mode .carousel-dots .dot.active {
   background: #f0f0f0;
 }
 
@@ -2168,7 +2154,7 @@ body.dark-mode .carousel-dots .dot.active {
 
 .svg-loader {
   display: block;
-  margin: 80px auto;
+  margin: 0 auto;
   animation: rotate 2s linear infinite;
 }
 
@@ -2196,4 +2182,8 @@ body.dark-mode .carousel-dots .dot.active {
     stroke-dasharray: 1,200;
     stroke-dashoffset: -120;
   }
+}
+
+.js-fullheight {
+  min-height: 100vh;
 }
