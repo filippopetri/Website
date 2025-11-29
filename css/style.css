@@ -12,7 +12,7 @@
 *
 * ======================================================= */
 
-:root {
+/* :root {
     --bg-body: #ffffff;
     --bg-loader: #fff;
     --navbar-bg: rgba(255,255,255,0.95);
@@ -24,7 +24,7 @@
 }
 body { background: var(--bg-body); }
 .fh5co-loader { background: var(--bg-loader) !important; }
-#topNav { background: var(--navbar-bg) !important; }
+#topNav { background: var(--navbar-bg) !important; } */
 
 body {
   font-family: "Space Mono", Arial, serif;
