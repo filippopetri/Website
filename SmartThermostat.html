@@ -9,27 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Space+Mono|Kaushan+Script&display=swap" rel="stylesheet">
 
-	<script>
-		(function () {
-			document.body.style.visibility = 'hidden';
-            
-			window.addEventListener('load', () => {
-				document.fonts.ready.then(() => {
-					const checkThemeReady = setInterval(() => {
-						if (document.body.classList.contains('theme-ready')) {
-							clearInterval(checkThemeReady);
-							setTimeout(() => {
-								$(".fh5co-loader").fadeOut(150);
-								document.body.style.visibility = 'visible';
-								document.documentElement.style.overflow = 'auto';
-							}, 50);
-						}
-					}, 10);
-				});
-			});
-		})();
-	</script>
-
     <title>Filippo Petri | Smart Thermostat</title>
 
     <meta name="author" content="&copy; Filippo Petri" />
@@ -227,9 +206,23 @@
 
                 <!-- Frecce -->
                 <div class="glide__arrows" data-glide-el="controls">
-                    <button class="glide__arrow glide__arrow--prev" data-glide-dir="<">❮</button>
-                    <button class="glide__arrow glide__arrow--next" data-glide-dir=">">❯</button>
+                    <!-- Freccia sinistra -->
+                    <button class="glide__arrow glide__arrow--prev" data-glide-dir="<">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <!-- Freccia destra -->
+                    <button class="glide__arrow glide__arrow--next" data-glide-dir=">">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
                 </div>
+
 
             </div>
         </section>
