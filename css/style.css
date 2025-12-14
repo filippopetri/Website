@@ -1168,6 +1168,7 @@ figure {
 }
 
 #fh5co-footer {
+  background-color: #fff;
   padding: 50px 0;
   float: left;
   width: 100%;
@@ -1175,6 +1176,11 @@ figure {
 
 #fh5co-footer p:last-child {
   margin-bottom: 0;
+}
+
+body.dark-mode #fh5co-footer {
+  background-color: #2e2e2e;
+  color: #fff;
 }
 
 .contact-info {
